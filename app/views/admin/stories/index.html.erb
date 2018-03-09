@@ -40,7 +40,7 @@
     <% @stories.each do |story| %>
       <tr>
         <td><%= I18n.t("shared.locale.short.#{story.locale}") %></td>
-        <td><%= story.time_period.label %></td>
+        <td data-order="<%= story.time_period.order %>"><%= story.time_period.label %></td>
         <td><%= story.country.name %></td>
         <td><%= story.title %></td>
         <td><%= link_to t('shared.actions.view'), story.link,
