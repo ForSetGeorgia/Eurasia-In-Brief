@@ -1,0 +1,89 @@
+/*
+The CSS for this project is written according to the Trello CSS Style Guide.
+Please read the style guide before making changes to the project.
+
+URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
+*/
+
+/*
+ *= require formtastic
+ *= require formtastic-bootstrap
+
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ */
+
+@charset 'UTF-8';
+
+@import 'variables';
+@import 'media-queries';
+@import 'bootstrap_and_overrides';
+@import 'formtastic_overrides';
+
+// Font awesome icons
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+// Components
+@import 'components/actions';
+@import 'components/app-footer';
+@import 'components/language_switcher';
+@import 'components/loading_indicator';
+@import 'components/primary_header';
+@import 'components/translated_inputs';
+
+.actions-container {
+  // background-color: #f9f9f9;
+  padding: 10px;
+  margin: 20px 0px;
+}
+.actions {
+  background-color: transparent;
+}
+a.btn-primary, a.btn-danger {
+  color: #fff !important;
+}
+table th {
+  font: 16px caviar_dreams_b !important;
+}
+.btn:hover {
+  box-shadow: none;
+}
+table td, .btn {
+  font: 16px caviar_dreams_r !important;
+  vertical-align: middle !important;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f7e9d5;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #f5e0c3;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: caviar_dreams_b !important;
+  padding: 6px 0 10px !important;
+}
+h1 { font-size: 24px !important; }
+h2 { font-size: 22px !important; }
+h3 { font-size: 21px !important; }
+h4 { font-size: 20px !important; }
+h5 { font-size: 19px !important; }
+h6 { font-size: 18px !important; }
+.formtastic .boolean label {
+  padding: 0;
+}
+.formtastic .control-label {
+  font-family: caviar_dreams_r !important;
+  margin-left: 3px !important;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: static !important;
+  margin-left: 0 !important;
+}
+fieldset.inputs .row{
+  margin-left: 0;
+  margin-right: 0;
+}
+.formtastic .stringish input[type="number"] {
+   width:100px;
+}

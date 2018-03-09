@@ -3,3 +3,8 @@ en:
   admin:
     index:
       title: Admin Section
+    time_periods:
+      form:
+        set_to_max_order:
+          label: Make Most Recent
+          title: Click this button to set the sort order of this time period to make it the most recent

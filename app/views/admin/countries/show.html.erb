@@ -1,0 +1,23 @@
+<%
+page_title t('shared.common.show_title',
+             model: t('activerecord.models.country', count: 1),
+             title: @country.name)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @country,
+          index_path: admin_countries_path,
+          show_path: admin_country_path,
+          edit_path: edit_admin_country_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.country.name' %>:</strong></dt>
+  <dd><%= @country.name %></dd>
+  <dt><strong><%=t 'activerecord.attributes.country.leader' %>:</strong></dt>
+  <dd><%= @country.leader %></dd>
+</dl>

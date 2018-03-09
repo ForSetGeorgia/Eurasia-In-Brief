@@ -1,7 +1,7 @@
 <%- model_class = User -%>
-<% page_title t('.title',
-                user_model_name: t('activerecord.models.user', count: 1),
-                user_email: @user.email) %>
+<% page_title t('shared.common.show_title',
+                model: t('activerecord.models.user', count: 1),
+                title: @user.email) %>
 
 <div class='actions'>
   <%= render partial: 'shared/show_actions',

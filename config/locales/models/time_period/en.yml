@@ -1,0 +1,12 @@
+---
+en:
+  activerecord:
+    attributes:
+      time_period:
+        label: Label
+        order: Sort Order
+        is_published: Is Published?
+    models:
+      time_period:
+        one: Time Period
+        other: Time Periods

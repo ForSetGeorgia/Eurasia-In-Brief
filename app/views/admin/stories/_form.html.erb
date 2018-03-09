@@ -1,0 +1,21 @@
+<% object = @story %>
+<%= semantic_form_for [:admin,object] do |f| %>
+  <%= f.semantic_errors *f.object.errors.keys %>
+  <%= f.inputs do %>
+
+    <div class="row">
+      <%= f.input :locale, as: :select, collection: @locales, wrapper_html: {class: 'col-md-4'} %>
+      <%= f.input :time_period_id, as: :select, collection: @time_periods.pluck(:label, :id), wrapper_html: {class: 'col-md-4'} %>
+      <%= f.input :country_id, as: :select, collection: @countries.pluck(:name, :id), wrapper_html: {class: 'col-md-4'} %>
+    </div>
+
+    <%= f.input :link, as: :url %>
+
+    <%= f.input :content, as: :text, input_html: {class: 'js-become-rich-text-editor'} %>
+
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
+  <% end %>
+<% end %>

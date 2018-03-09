@@ -1,0 +1,11 @@
+---
+en:
+  activerecord:
+    attributes:
+      country:
+        name: Name
+        leader: Leader
+    models:
+      country:
+        one: Country
+        other: Countries

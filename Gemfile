@@ -166,3 +166,18 @@ end
 
 #####################################################################
 ########################## Project Gems #############################
+
+# create permalinks
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
+
+# create permalinks with globalize
+gem 'friendly_id-globalize', '~> 1.0.0.alpha3'
+
+# create slugs with utf8 text
+gem 'babosa', '~> 1.0', '>= 1.0.2'
+
+# wysiwyg editor
+gem 'ckeditor', '~> 4.2', '>= 4.2.4'
+
+# jquery datatable
+gem 'jquery-datatables-rails', '~> 3.4.0'

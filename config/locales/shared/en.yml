@@ -24,9 +24,15 @@ en:
         slogan: ForSet - Communicating With Data
       name: Eurasia In Brief
       description: This is a description of the project that will appear in the meta tags.
+      show_title: "%{model}: %{title}"
+      'no': 'No'
+      'yes': 'Yes'
     links:
       page_contents: Edit Page Text
       admin: Admin Section
+      countries: Countries
+      time_periods: Time Periods
+      stories: Stories
     labels:
       translated_field: "%{field} (%{language})"
     locale:

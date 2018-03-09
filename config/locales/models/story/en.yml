@@ -1,0 +1,14 @@
+---
+en:
+  activerecord:
+    attributes:
+      story:
+        locale: Story Language
+        content: Content
+        link: Link to Story
+        time_period_id: Time Period
+        country_id: Country
+    models:
+      story:
+        one: Story
+        other: Stories

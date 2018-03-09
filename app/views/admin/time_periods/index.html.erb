@@ -1,0 +1,51 @@
+<%
+  model_class = TimePeriod
+  page_title t('activerecord.models.time_period', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_time_period_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th><%=t 'activerecord.attributes.time_period.label' %></th>
+      <th><%=t 'activerecord.attributes.time_period.order' %></th>
+      <th><%=t 'activerecord.attributes.time_period.is_published' %></th>
+
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_periods.each do |time_period| %>
+      <tr>
+        <td><%= time_period.label %></td>
+        <td><%= time_period.order %></td>
+        <td><%= format_boolean_flag(time_period.is_published) %></td>
+
+        <td>
+          <%= if can? :edit, time_period
+                link_to t('shared.actions.edit'),
+                        edit_admin_time_period_path(time_period),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, time_period
+                link_to t('shared.actions.destroy'),
+                        admin_time_period_path(time_period),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

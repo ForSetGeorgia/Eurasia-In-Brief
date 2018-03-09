@@ -1,0 +1,33 @@
+<% object = @time_period %>
+<%= semantic_form_for [:admin,object] do |f| %>
+  <%= f.semantic_errors *f.object.errors.keys %>
+  <%= f.inputs do %>
+    <%= render layout: 'shared/form/translated_inputs',
+               locals: { object: object } do |enabled_locale, enabled_locale_name| %>
+      <%= f.input "label_#{enabled_locale}",
+                  label: t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.time_period.label'),
+                         language: enabled_locale_name) %>
+    <% end %>
+
+    <div class="number input optional numeric stringish form-group" id="time_period_order_input">
+        <span class="form-label">
+            <label for="time_period_order" class=" control-label"><%= t('activerecord.attributes.time_period.order') %></label>
+        </span>
+        <span class="form-wrapper">
+          <input id="time_period_order" step="1" class="form-control" value="2" name="time_period[order]" type="number">
+          <%= link_to t('.set_to_max_order.label'), '#',
+                        class: 'btn btn-small btn-primary btn-set-max-order',
+                        title: t('.set_to_max_order.title'),
+                        'data-max-order': @max_order %>
+        </span>
+    </div>
+
+    <%= f.input :is_published, as: :radio %>
+
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
+  <% end %>
+<% end %>

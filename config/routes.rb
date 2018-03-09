@@ -18,10 +18,13 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, constraints: { format: :html }
       resources :page_contents, constraints: { format: :html }
+      resources :time_periods, constraints: { format: :html }
+      resources :countries, constraints: { format: :html }
+      resources :stories, constraints: { format: :html }
     end
 
-    root 'root#index'
-    get '/about' => 'root#about'
+    root 'root#index', constraints: { format: :html }
+    get '/about' => 'root#about', constraints: { format: :html }
 
     # handles /en/fake/path/whatever
     get '*path', to: redirect("/#{I18n.default_locale}")
