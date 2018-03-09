@@ -9,6 +9,8 @@
       <%= f.input :country_id, as: :select, collection: @countries.pluck(:name, :id), wrapper_html: {class: 'col-md-4'} %>
     </div>
 
+    <%= f.input :title, as: :string %>
+
     <%= f.input :link, as: :url %>
 
     <%= f.input :content, as: :text, input_html: {class: 'js-become-rich-text-editor'} %>

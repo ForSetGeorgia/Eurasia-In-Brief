@@ -8,7 +8,7 @@ class Story < ActiveRecord::Base
   #######################
   ## VALIDATIONS
 
-  validates :country_id, :time_period_id, :content, :locale, presence: :true
+  validates :country_id, :time_period_id, :content, :locale, :title, presence: :true
   validates :locale, inclusion: { in: I18n.available_locales.map{|x| x.to_s} }
 
   #######################

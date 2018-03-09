@@ -4,6 +4,7 @@ en:
     attributes:
       story:
         locale: Story Language
+        title: Title
         content: Content
         link: Link to Story
         time_period_id: Time Period

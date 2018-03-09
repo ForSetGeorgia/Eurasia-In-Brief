@@ -75,13 +75,13 @@ class Admin::StoriesController < ApplicationController
 
       @locales = []
       I18n.available_locales.sort.each do |locale|
-        @locales << [I18n.t("shared.locale.long.#{locale}"), I18n.t("shared.locale.short.#{locale}").downcase]
+        @locales << [I18n.t("shared.locale.long.#{locale}"), locale]
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      permitted = [:locale, :content, :link, :time_period_id, :country_id]
+      permitted = [:locale, :content, :link, :time_period_id, :country_id, :title]
       params.require(:story).permit(*permitted)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309080555) do
+ActiveRecord::Schema.define(version: 20180309131925) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "slug",       limit: 255
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180309080555) do
     t.integer  "country_id",     limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "title",          limit: 255
   end
 
   add_index "stories", ["country_id"], name: "index_stories_on_country_id", using: :btree

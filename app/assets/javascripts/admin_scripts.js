@@ -34,6 +34,7 @@
     setupTimePeriodOrder();
 
     $('.datatable-stories').DataTable({
+        lengthMenu: [[15, 30, 45, -1], [15, 30, 45, "All"]],
         initComplete: function () {
             this.api().columns().every( function () {
                 var column = this;

@@ -1,7 +1,7 @@
 <%
 page_title t('shared.common.show_title',
              model: t('activerecord.models.story', count: 1),
-             title: "??")
+             title: @story.title)
 %>
 
 <div class='actions-container'>
@@ -20,6 +20,8 @@ page_title t('shared.common.show_title',
   <dd><%= @story.time_period.label %></dd>
   <dt><strong><%=t 'activerecord.attributes.story.country_id' %>:</strong></dt>
   <dd><%= @story.country.name %></dd>
+  <dt><strong><%=t 'activerecord.attributes.story.title' %>:</strong></dt>
+  <dd><%= @story.title %></dd>
   <dt><strong><%=t 'activerecord.attributes.story.link' %>:</strong></dt>
   <dd><%= link_to @story.link, @story.link if @story.link.present? %></dd>
   <dt><strong><%=t 'activerecord.attributes.story.content' %>:</strong></dt>
