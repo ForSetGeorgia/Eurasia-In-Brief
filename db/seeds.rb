@@ -30,3 +30,32 @@ if ENV['create_user_accounts'].present? && !Rails.env.production?
   end
 end
 
+
+
+# create country records
+if ENV['create_country_records'].present?
+  puts "LOADING COUNTRIES"
+
+  countries = [
+    'Armenia',
+    'Azerbaijan',
+    'Belarus',
+    'Georgia',
+    'Kazakhstan',
+    'Kyrgyzstan',
+    'Moldova',
+    'Russia',
+    'Tajikistan',
+    'Turkmenistan',
+    'Ukraine',
+    'Uzbekistan'
+  ]
+
+  countries.each do |country|
+    Country.find_or_create_by(name: country) do |u|
+      puts "creating country #{country}"
+    end
+  end
+end
+
+
