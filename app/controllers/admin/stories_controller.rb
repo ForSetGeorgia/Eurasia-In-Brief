@@ -7,7 +7,7 @@ class Admin::StoriesController < ApplicationController
   # GET /admin/stories
   # GET /admin/stories.json
   def index
-    @stories = Story.with_translations
+    @stories = Story.with_time_period_translations.with_country_translations
   end
 
   # GET /admin/stories/1

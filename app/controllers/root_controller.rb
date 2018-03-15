@@ -23,6 +23,20 @@ class RootController < ApplicationController
     end
   end
 
+  def country
+    @country = Country.friendly.find(params[:id])
+
+    if @country.present?
+      @stories = Story.with_time_period_translations.by_locale(I18n.locale).by_country(@country.id).sort_time_period
+
+      @countries = Country.sorted
+    else
+      redirect_to root_path,
+                alert: t('shared.msgs.does_not_exist')
+    end
+
+  end
+
   def about
   end
 end

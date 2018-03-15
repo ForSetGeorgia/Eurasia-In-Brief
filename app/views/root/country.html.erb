@@ -1,0 +1,41 @@
+<% page_title @country.name %>
+
+<%if @countries.present? %>
+  <div class="countries">
+    <ul>
+      <% @countries.each_with_index do |country, idx_country| %>
+        <li><%= link_to country.name, country_path(country), style: params[:id] == country.slug ? "font-weight: bold;" : "" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="country-profile">
+  country info....
+
+</div>
+
+
+
+<% if @stories.present? %>
+  <div class="stories">
+    <% @stories.each do |story| %>
+      <div class="story-item">
+        <h3><%= story.title %></h3>
+        <div class="story-date">
+          <%= story.time_period.label %>
+        </div>
+        <div class="story-text">
+          <%= simple_format story.content %>
+        </div>
+        <% if story.link.present? %>
+          <%= link_to t('.view_story'), story.link, target: :blank, class: 'btn btn-default btn-small' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="alert alert-warning">
+    <%= t('.no_stories') %>
+  </p>
+<% end %>

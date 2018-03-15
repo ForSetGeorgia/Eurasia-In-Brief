@@ -14,8 +14,16 @@ class Story < ActiveRecord::Base
 
   #######################
   ## SCOPES
-  def self.with_translations
-    includes(time_period: :translations, country: :translations)
+  def self.with_time_period_translations
+    includes(time_period: :translations)
+  end
+
+  def self.sort_time_period
+    order("time_periods.order desc")
+  end
+
+  def self.with_country_translations
+    includes(country: :translations)
   end
 
   def self.by_locale(locale)

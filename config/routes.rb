@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
 
     root 'root#index', constraints: { format: :html }
+    get '/country/:id' => 'root#country', as: :country, constraints: { format: :html }
+    get '/country', to: redirect('/')
     get '/about' => 'root#about', constraints: { format: :html }
 
     # handles /en/fake/path/whatever

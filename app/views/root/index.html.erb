@@ -17,7 +17,7 @@
     <% end %>
 
       <div class="col-md-3">
-        <h2><%= country.name %></h2>
+        <h2><%= link_to country.name, country_path(country) %></h2>
         <%
           story = @stories.select{|x| x.country_id == country.id}.first
           if story.present?
