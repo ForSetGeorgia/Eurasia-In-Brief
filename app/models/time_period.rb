@@ -40,6 +40,10 @@ class TimePeriod < AddMissingTranslation
     sorted.limit(1).pluck(:order).first
   end
 
+  def self.most_recent
+    sorted.first
+  end
+
   #######################
   #######################
   private

@@ -1,1 +1,53 @@
 <% page_title t 'shared.common.name' %>
+
+<% if @time_periods.present? && @countries.present? %>
+
+  <div class="time_periods">
+    <%= t('.time_periods') %>
+    <ul>
+      <% @time_periods.each do |time_period| %>
+        <li><%= link_to time_period.label, params.slice(:sort).merge(time_period: time_period) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% @countries.each_with_index do |country, idx_country| %>
+    <% if idx_country % 4 == 0 %>
+      <div class="row">
+    <% end %>
+
+      <div class="col-md-3">
+        <h2><%= country.name %></h2>
+        <%
+          story = @stories.select{|x| x.country_id == country.id}.first
+          if story.present?
+        %>
+          <h3><%= story.title %></h3>
+          <div class="story-text">
+            <%= simple_format story.content %>
+          </div>
+          <% if story.link.present? %>
+            <%= link_to t('.view_story'), story.link, target: :blank, class: 'btn btn-default btn-small' %>
+          <% end %>
+        <% else %>
+          <p class="alert alert-warning">
+            <%= t('.no_story') %>
+          </p>
+        <% end %>
+
+      </div>
+
+
+    <% if idx_country % 4 == 3 %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+<% else %>
+
+  <p class="alert alert-warning">
+    <%= t('.no_data') %>
+  </p>
+
+<% end %>

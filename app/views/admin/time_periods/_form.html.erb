@@ -15,7 +15,7 @@
             <label for="time_period_order" class=" control-label"><%= t('activerecord.attributes.time_period.order') %></label>
         </span>
         <span class="form-wrapper">
-          <input id="time_period_order" step="1" class="form-control" value="2" name="time_period[order]" type="number">
+          <input id="time_period_order" step="1" class="form-control" value="<%= object.order %>" name="time_period[order]" type="number">
           <%= link_to t('.set_to_max_order.label'), '#',
                         class: 'btn btn-small btn-primary btn-set-max-order',
                         title: t('.set_to_max_order.title'),
