@@ -11,8 +11,14 @@
 <% end %>
 
 <div class="country-profile">
-  country info....
+  <ul>
+    <li><strong><%= t('.leader') %>:</strong> <%= @country.leader %>
+  </ul>
 
+  <% if @country.lat.present? && @country.lon.present? %>
+    <div id="country_map" data-lat="<%= @country.lat %>" data-lon="<%= @country.lon %>" data-map-zoom-level="<%= @country.map_zoom_level %>"></div>
+
+  <% end %>
 </div>
 
 

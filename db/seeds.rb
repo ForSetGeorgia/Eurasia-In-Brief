@@ -35,6 +35,7 @@ end
 # create country records
 if ENV['create_country_records'].present?
   puts "LOADING COUNTRIES"
+  require 'csv'
 
   puts "- deleting existing records"
   Story.destroy_all
@@ -50,7 +51,8 @@ if ENV['create_country_records'].present?
       puts "creating country #{country[0]}"
       c.lat = country[1]
       c.lon = country[2]
-      c.leader = country[3]
+      c.map_zoom_level = country[3]
+      c.leader = country[4]
     end
   end
 end

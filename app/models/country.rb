@@ -32,8 +32,9 @@ class Country < AddMissingTranslation
   ## VALIDATIONS
 
   validates :name, presence: :true
-  validates :lat, numericality: true, unless: Proc.new { |x| x.lat.blank? }
-  validates :lon, numericality: true, unless: Proc.new { |x| x.lon.blank? }
+  validates :lat, numericality: true
+  validates :lon, numericality: true
+  validates :map_zoom_level, numericality: { only_integer: true }
 
   #######################
   ## SCOPES

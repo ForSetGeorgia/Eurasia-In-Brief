@@ -42,3 +42,19 @@
 
 // require turbolinks
 // require google-analytics-turbolinks
+var mymap;
+
+(function() {
+  $(document).ready(function() {
+    $map = $('div#country_map');
+    mymap = L.map('country_map').setView([$map.data('lat'), $map.data('lon')], $map.data('map-zoom-level'));
+
+    L.tileLayer(gon.mapbox_url, {
+        maxZoom: 18,
+        id: 'country_map',
+        accessToken: gon.mapbox_token
+    }).addTo(mymap);
+  });
+})();
+
+
