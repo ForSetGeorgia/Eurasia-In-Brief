@@ -62,6 +62,7 @@ end
 # create test records
 if ENV['create_test_records'].present? && !Rails.env.production?
   puts "LOADING TEST RECORDS"
+  require 'csv'
 
   puts "- deleting existing records"
   Story.destroy_all

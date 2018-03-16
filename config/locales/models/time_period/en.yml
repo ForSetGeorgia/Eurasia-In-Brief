@@ -10,3 +10,6 @@ en:
       time_period:
         one: Time Period
         other: Time Periods
+    errors:
+      time_period:
+        no_stories: This time period must have stories assigned to it before the time period can be published.

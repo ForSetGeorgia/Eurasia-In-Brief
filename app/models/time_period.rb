@@ -1,5 +1,9 @@
 class TimePeriod < AddMissingTranslation
   #######################
+  ## ASSOCIATIONS
+  has_many :stories, dependent: :destroy
+
+  #######################
   ## TRANSLATIONS
 
   translates :label, :slug,
@@ -30,6 +34,19 @@ class TimePeriod < AddMissingTranslation
   validates :label, presence: :true
   validates :is_published, inclusion: { in: [true, false] }
   validates :order, numericality: { only_integer: true }
+
+  #######################
+  ## CALLBACKS
+
+  # if the time period is being published, it must have stories to be published
+  before_save :has_stories?
+  def has_stories?
+    if self.is_published_changed? && self.is_published? && self.stories.count == 0
+      errors.add(:is_published,I18n.t('activerecord.errors.time_period.no_stories'))
+      return false
+    end
+    return true
+  end
 
   #######################
   ## SCOPES
