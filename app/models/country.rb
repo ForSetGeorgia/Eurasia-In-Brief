@@ -1,5 +1,9 @@
 class Country < AddMissingTranslation
   #######################
+  ## ASSOCIATIONS
+  has_many :stories, dependent: :destroy
+
+  #######################
   ## TRANSLATIONS
 
   translates :name, :leader, :slug,
@@ -28,6 +32,8 @@ class Country < AddMissingTranslation
   ## VALIDATIONS
 
   validates :name, presence: :true
+  validates :lat, numericality: true, unless: Proc.new { |x| x.lat.blank? }
+  validates :lon, numericality: true, unless: Proc.new { |x| x.lon.blank? }
 
   #######################
   ## SCOPES

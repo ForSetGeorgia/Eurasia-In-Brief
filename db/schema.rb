@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309131925) do
+ActiveRecord::Schema.define(version: 20180316131236) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "slug",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.decimal  "lat",                    precision: 15, scale: 12
+    t.decimal  "lon",                    precision: 15, scale: 12
   end
 
   add_index "countries", ["slug"], name: "index_countries_on_slug", unique: true, using: :btree

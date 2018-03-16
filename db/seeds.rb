@@ -36,24 +36,21 @@ end
 if ENV['create_country_records'].present?
   puts "LOADING COUNTRIES"
 
-  countries = [
-    'Armenia',
-    'Azerbaijan',
-    'Belarus',
-    'Georgia',
-    'Kazakhstan',
-    'Kyrgyzstan',
-    'Moldova',
-    'Russia',
-      'Tajikistan',
-    'Turkmenistan',
-    'Ukraine',
-    'Uzbekistan'
-  ]
+  puts "- deleting existing records"
+  Story.destroy_all
+  Country.destroy_all
+
+  puts "- getting records"
+  countries = CSV.read("#{Rails.root}/db/data/countries.csv")
+  # remove headers
+  countries.delete_at(0)
 
   countries.each do |country|
-    Country.find_or_create_by(name: country) do |u|
-      puts "creating country #{country}"
+    Country.find_or_create_by(name: country[0]) do |c|
+      puts "creating country #{country[0]}"
+      c.lat = country[1]
+      c.lon = country[2]
+      c.leader = country[3]
     end
   end
 end
@@ -83,7 +80,7 @@ if ENV['create_test_records'].present? && !Rails.env.production?
   tps = data.map{|x| x[1]}.uniq
   tps.each do |tp|
     order = months[tp.split(' ').first]
-    time_periods << TimePeriod.create(is_published: true, label: tp, order: order)
+    time_periods << TimePeriod.create(is_published: false, label: tp, order: order)
   end
 
   # create the stories
@@ -94,4 +91,9 @@ if ENV['create_test_records'].present? && !Rails.env.production?
     s = Story.create(locale: story[0], time_period_id: tp.id, country_id: c.id, title: story[3], link: story[4], content: "<p>#{story[5]}</p>")
   end
 
+  # publish the time periods
+  time_periods.each do |tp|
+    tp.is_published = true
+    tp.save
+  end
 end
