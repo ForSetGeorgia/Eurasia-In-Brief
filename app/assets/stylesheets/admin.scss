@@ -87,3 +87,6 @@ fieldset.inputs .row{
 .formtastic .stringish input[type="number"] {
    width:100px;
 }
+.formtastic .stringish input[type="number"].long_number {
+   width:150px;
+}

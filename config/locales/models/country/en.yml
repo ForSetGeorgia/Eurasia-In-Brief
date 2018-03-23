@@ -5,6 +5,9 @@ en:
       country:
         name: Name
         leader: Leader
+        lat: Latitude
+        lon: Longitude
+        map_zoom_level: Map Zoom Level
     models:
       country:
         one: Country

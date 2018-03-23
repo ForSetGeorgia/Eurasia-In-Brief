@@ -13,8 +13,20 @@
                          field: t('activerecord.attributes.country.leader'),
                          language: enabled_locale_name) %>
     <% end %>
-
   <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :lat, input_html: {class: 'long_number'} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :lon, input_html: {class: 'long_number'} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :map_zoom_level %>
+    </div>
+  </div>
+
 
   <%= f.actions do %>
     <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
