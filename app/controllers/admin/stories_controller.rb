@@ -81,7 +81,7 @@ class Admin::StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      permitted = [:locale, :content, :link, :time_period_id, :country_id, :title]
+      permitted = [:locale, :content, :link, :time_period_id, :country_id, :title, :image]
       params.require(:story).permit(*permitted)
     end
 end

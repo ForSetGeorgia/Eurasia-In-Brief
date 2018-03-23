@@ -31,6 +31,11 @@
         <div class="story-date">
           <%= story.time_period.label %>
         </div>
+        <% if story.image.exists? %>
+          <div class="story-image">
+            <%= image_tag(story.image.url(:medium)) %>
+          </div>
+        <% end %>
         <div class="story-text">
           <%= simple_format story.content %>
         </div>

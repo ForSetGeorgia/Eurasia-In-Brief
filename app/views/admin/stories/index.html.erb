@@ -21,12 +21,14 @@
       <th><%=t 'activerecord.attributes.story.title' %></th>
       <th><%=t 'activerecord.attributes.story.link' %></th>
       <th><%=t 'activerecord.attributes.story.content' %></th>
+      <th><%=t 'activerecord.attributes.story.image' %></th>
 
       <th class='action-col'><%=t 'shared.common.actions' %></th>
     </tr>
   </thead>
   <tfoot>
     <tr>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -46,6 +48,7 @@
         <td><%= link_to t('shared.actions.view'), story.link,
                       class: 'btn btn-default', target: :blank if story.link.present? %></td>
         <td><%= simple_format(story.content) %></td>
+        <td><%= image_tag(story.image.url(:thumb)) if story.image.exists? %></td>
 
         <td>
           <%= if can? :edit, story

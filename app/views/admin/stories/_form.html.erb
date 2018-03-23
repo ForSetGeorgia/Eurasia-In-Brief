@@ -1,5 +1,5 @@
 <% object = @story %>
-<%= semantic_form_for [:admin,object] do |f| %>
+<%= semantic_form_for [:admin,object], html: {multipart: true} do |f| %>
   <%= f.semantic_errors *f.object.errors.keys %>
   <%= f.inputs do %>
 
@@ -14,6 +14,18 @@
     <%= f.input :link, as: :url %>
 
     <%= f.input :content, as: :text, input_html: {class: 'js-become-rich-text-editor'} %>
+
+    <div class="file input optional form-group" id="story_image_input">
+      <span class="form-label">
+        <label for="story_image" class=" control-label"><%= t('activerecord.attributes.story.image') %></label>
+      </span>
+      <% if object.image.exists? %>
+        <%= image_tag(object.image.url(:thumb)) %>
+      <% end %>
+      <span class="form-wrapper">
+        <input accept=".jpg,.jpeg,.png" id="story_image" name="story[image]" type="file">
+      </span>
+    </div>
 
   <% end %>
 

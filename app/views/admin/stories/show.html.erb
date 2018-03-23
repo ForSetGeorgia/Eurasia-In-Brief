@@ -24,6 +24,8 @@ page_title t('shared.common.show_title',
   <dd><%= @story.title %></dd>
   <dt><strong><%=t 'activerecord.attributes.story.link' %>:</strong></dt>
   <dd><%= link_to @story.link, @story.link if @story.link.present? %></dd>
+  <dt><strong><%=t 'activerecord.attributes.story.image' %>:</strong></dt>
+  <dd><%= image_tag(@story.image.url(:thumb)) if @story.image.exists? %></dd>
   <dt><strong><%=t 'activerecord.attributes.story.content' %>:</strong></dt>
   <dd><%= simple_format(@story.content) %></dd>
 </dl>

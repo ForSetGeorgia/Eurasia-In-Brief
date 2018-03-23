@@ -184,3 +184,6 @@ gem 'jquery-datatables-rails', '~> 3.4.0'
 
 # model url validatiaon
 gem 'valid_url', '~> 0.0.4'
+
+# managing file attachments
+gem 'paperclip', '~> 5.1'
