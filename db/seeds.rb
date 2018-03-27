@@ -42,17 +42,24 @@ if ENV['create_country_records'].present?
   Country.destroy_all
 
   puts "- getting records"
-  countries = CSV.read("#{Rails.root}/db/data/countries.csv")
+  path = "#{Rails.root}/db/data"
+  countries = CSV.read("#{path}/countries.csv")
   # remove headers
   countries.delete_at(0)
 
   countries.each do |country|
     Country.find_or_create_by(name: country[0]) do |c|
       puts "creating country #{country[0]}"
+      # get reference to images
+      leader = File.open("#{path}/country_leader_images/#{country[0].downcase}.jpg")
+      flag = File.open("#{path}/country_flags/#{country[0].downcase}.png")
+
       c.lat = country[1]
       c.lon = country[2]
       c.map_zoom_level = country[3]
       c.leader = country[4]
+      c.leader_image =leader
+      c.flag_image =flag
     end
   end
 end

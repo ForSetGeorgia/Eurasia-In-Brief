@@ -8,6 +8,8 @@ en:
         lat: Latitude
         lon: Longitude
         map_zoom_level: Map Zoom Level
+        flag_image: Flag
+        leader_image: Leader Image
     models:
       country:
         one: Country

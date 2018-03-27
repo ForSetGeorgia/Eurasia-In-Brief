@@ -29,12 +29,40 @@ class Country < AddMissingTranslation
   end
 
   #######################
+  ## ATTACHED FILE
+  has_attached_file :leader_image,
+                    :url => "/system/country/:id/leader/:style/:basename.:extension",
+                    :styles => {
+                        :'thumb' => {:geometry => "150>"},
+                        :'medium' => {:geometry => "500>"}
+                    },
+                    :convert_options => {
+                      :'thumb' => '-quality 85'
+                    }
+  has_attached_file :flag_image,
+                    :url => "/system/country/:id/flag/:style/:basename.:extension",
+                    :styles => {
+                        :'thumb' => {:geometry => "50>"},
+                        :'medium' => {:geometry => "100>"}
+                    },
+                    :convert_options => {
+                      :'thumb' => '-quality 85'
+                    }
+
+  #######################
   ## VALIDATIONS
 
   validates :name, presence: :true
   validates :lat, numericality: true
   validates :lon, numericality: true
   validates :map_zoom_level, numericality: { only_integer: true }
+  validates_attachment :leader_image,
+    content_type: { content_type: ["image/jpeg", "image/png"] },
+    size: { in: 0..5.megabytes }
+  validates_attachment :flag_image,
+    content_type: { content_type: ["image/jpeg", "image/png"] },
+    size: { in: 0..5.megabytes }
+
 
   #######################
   ## SCOPES

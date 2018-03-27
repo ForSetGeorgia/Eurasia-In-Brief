@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323124759) do
+ActiveRecord::Schema.define(version: 20180327111349) do
 
   create_table "countries", force: :cascade do |t|
-    t.string   "slug",           limit: 255
-    t.datetime "created_at",                                                        null: false
-    t.datetime "updated_at",                                                        null: false
-    t.decimal  "lat",                        precision: 15, scale: 12
-    t.decimal  "lon",                        precision: 15, scale: 12
-    t.integer  "map_zoom_level", limit: 4,                             default: 13
+    t.string   "slug",                      limit: 255
+    t.datetime "created_at",                                                                   null: false
+    t.datetime "updated_at",                                                                   null: false
+    t.decimal  "lat",                                   precision: 15, scale: 12
+    t.decimal  "lon",                                   precision: 15, scale: 12
+    t.integer  "map_zoom_level",            limit: 4,                             default: 13
+    t.string   "leader_image_file_name",    limit: 255
+    t.string   "leader_image_content_type", limit: 255
+    t.integer  "leader_image_file_size",    limit: 4
+    t.datetime "leader_image_updated_at"
+    t.string   "flag_image_file_name",      limit: 255
+    t.string   "flag_image_content_type",   limit: 255
+    t.integer  "flag_image_file_size",      limit: 4
+    t.datetime "flag_image_updated_at"
   end
 
   add_index "countries", ["slug"], name: "index_countries_on_slug", unique: true, using: :btree
