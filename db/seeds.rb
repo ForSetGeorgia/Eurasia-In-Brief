@@ -60,11 +60,14 @@ if ENV['create_country_records'].present?
       c.leader = country[4]
       c.leader_image =leader
       c.flag_image =flag
-      c.ti_index_score = country[5]
-      c.ti_index_rank = country[6]
-      c.ti_url = country[7]
-      c.freedom_house_index = country[8]
-      c.freedom_house_url = country[9]
+      c.area = country[5]
+      c.population = country[6]
+      c.gdp = country[7]
+      c.ti_index_score = country[8]
+      c.ti_index_rank = country[9]
+      c.ti_url = country[10]
+      c.freedom_house_index = country[11]
+      c.freedom_house_url = country[12]
     end
   end
 end

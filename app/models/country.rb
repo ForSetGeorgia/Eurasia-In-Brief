@@ -33,7 +33,7 @@ class Country < AddMissingTranslation
   has_attached_file :leader_image,
                     :url => "/system/country/:id/leader/:style/:basename.:extension",
                     :styles => {
-                        :'thumb' => {:geometry => "150>"},
+                        :'thumb' => {:geometry => "100>"},
                         :'medium' => {:geometry => "500>"}
                     },
                     :convert_options => {
@@ -58,6 +58,8 @@ class Country < AddMissingTranslation
   validates :map_zoom_level, numericality: { only_integer: true }, unless: Proc.new { |x| x.map_zoom_level.blank? }
   validates :ti_index_score, numericality: { only_integer: true }, unless: Proc.new { |x| x.ti_index_score.blank? }
   validates :ti_index_rank, numericality: { only_integer: true }, unless: Proc.new { |x| x.ti_index_rank.blank? }
+  validates :area, numericality: { only_integer: true }, unless: Proc.new { |x| x.area.blank? }
+  validates :population, numericality: { only_integer: true }, unless: Proc.new { |x| x.population.blank? }
   validates :freedom_house_url, :url => true, unless: Proc.new { |x| x.freedom_house_url.blank? }
   validates :ti_url, :url => true, unless: Proc.new { |x| x.ti_url.blank? }
   validates_attachment :leader_image,

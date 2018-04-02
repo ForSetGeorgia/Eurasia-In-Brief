@@ -20,7 +20,9 @@
       <th><%=t 'activerecord.attributes.country.flag_image' %></th>
       <th><%=t 'activerecord.attributes.country.name' %></th>
       <th><%=t 'activerecord.attributes.country.leader' %></th>
-      <th><%=t 'activerecord.attributes.country.leader_image' %></th>
+      <th><%=t 'activerecord.attributes.country.area' %></th>
+      <th><%=t 'activerecord.attributes.country.population' %></th>
+      <th><%=t 'activerecord.attributes.country.gdp' %></th>
       <th><%=t 'activerecord.attributes.country.ti_index_score' %></th>
       <th><%=t 'activerecord.attributes.country.freedom_house_index' %></th>
 
@@ -39,8 +41,14 @@
 
         <td><%= image_tag(country.flag_image.url(:thumb)) if country.flag_image.exists? %></td>
         <td><%= country.name %></td>
-        <td><%= country.leader %></td>
-        <td><%= image_tag(country.leader_image.url(:thumb)) if country.leader_image.exists? %></td>
+        <td>
+          <%= country.leader %>
+          <br />
+          <%= image_tag(country.leader_image.url(:thumb)) if country.leader_image.exists? %>
+        </td>
+        <td><%= number_with_delimiter(country.area) if country.area.present? %></td>
+        <td><%= number_with_delimiter(country.population) %></td>
+        <td><%= number_with_delimiter(country.gdp) %></td>
         <td>
           <%= country.ti_index_score %>
           <% if country.ti_index_rank.present? %>

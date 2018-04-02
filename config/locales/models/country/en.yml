@@ -15,6 +15,9 @@ en:
         ti_index_score: TI Corruption Perception Index - Score
         ti_index_rank: TI Corruption Perception Index - Rank
         ti_url: TI Corruption Perception Index - URL
+        area: Area (km2)
+        population: Population
+        gdp: GDP Per Capita
     models:
       country:
         one: Country

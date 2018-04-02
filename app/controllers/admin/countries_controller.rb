@@ -78,7 +78,11 @@ class Admin::CountriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      permitted = Country.globalize_attribute_names + [:lat, :lon, :map_zoom_level, :leader_image, :flag_image, :freedom_house_index, :freedom_house_url, :ti_index_score, :ti_index_rank, :ti_url]
+      permitted = Country.globalize_attribute_names +
+        [
+          :lat, :lon, :map_zoom_level, :leader_image, :flag_image, :area, :population,
+          :freedom_house_index, :freedom_house_url, :ti_index_score, :ti_index_rank, :ti_url
+        ]
       params.require(:country).permit(*permitted)
     end
 end

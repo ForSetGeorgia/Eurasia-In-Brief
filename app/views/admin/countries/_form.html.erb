@@ -31,6 +31,20 @@
 
   <div class="row">
     <div class="col-md-4">
+      <%= f.input :area, input_html: {class: 'long_number'} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :population, input_html: {class: 'long_number'} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :gdp, input_html: {class: 'long_number'} %>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-4">
       <%= f.input :ti_url, as: :url %>
     </div>
     <div class="col-md-4">
@@ -49,6 +63,8 @@
       <%= f.input :freedom_house_index, as: :select, collection: @freedom_house_values %>
     </div>
   </div>
+
+  <hr />
 
   <div class="row">
     <div class="col-md-4">

@@ -19,6 +19,9 @@
     <li>
       <%= image_tag(@country.leader_image.url(:thumb)) if @country.leader_image.exists? %>
     </li>
+    <li><strong><%= t('.area') %>:</strong> <%= "#{number_with_delimiter(@country.area)} km<sup>2</sup>".html_safe if @country.area.present? %></li>
+    <li><strong><%= t('.population') %>:</strong> <%= number_with_delimiter(@country.population) %></li>
+    <li><strong><%= t('.gdp') %>:</strong> <%= "$#{number_with_delimiter(@country.gdp)}" if @country.gdp.present? %></li>
     <li>
       <% heading = t('.ti_link') %>
       <% if @country.ti_url.present? %>

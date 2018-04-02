@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402083521) do
+ActiveRecord::Schema.define(version: 20180402110118) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "slug",                      limit: 255
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20180402083521) do
     t.integer  "ti_index_score",            limit: 4
     t.integer  "ti_index_rank",             limit: 4
     t.string   "ti_url",                    limit: 255
+    t.integer  "area",                      limit: 4
+    t.integer  "population",                limit: 4
+    t.integer  "gdp",                       limit: 4
   end
 
   add_index "countries", ["slug"], name: "index_countries_on_slug", unique: true, using: :btree
