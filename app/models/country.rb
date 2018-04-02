@@ -55,7 +55,11 @@ class Country < AddMissingTranslation
   validates :name, presence: :true
   validates :lat, numericality: true
   validates :lon, numericality: true
-  validates :map_zoom_level, numericality: { only_integer: true }
+  validates :map_zoom_level, numericality: { only_integer: true }, unless: Proc.new { |x| x.map_zoom_level.blank? }
+  validates :ti_index_score, numericality: { only_integer: true }, unless: Proc.new { |x| x.ti_index_score.blank? }
+  validates :ti_index_rank, numericality: { only_integer: true }, unless: Proc.new { |x| x.ti_index_rank.blank? }
+  validates :freedom_house_url, :url => true, unless: Proc.new { |x| x.freedom_house_url.blank? }
+  validates :ti_url, :url => true, unless: Proc.new { |x| x.ti_url.blank? }
   validates_attachment :leader_image,
     content_type: { content_type: ["image/jpeg", "image/png"] },
     size: { in: 0..5.megabytes }
@@ -67,6 +71,15 @@ class Country < AddMissingTranslation
   #######################
   ## SCOPES
   scope :sorted, -> { with_translations(I18n.locale).order('country_translations.name asc') }
+
+
+  #######################
+  ## METHODS
+  def freedom_house_index_value
+    if self.freedom_house_index.present?
+      return I18n.t("shared.common.freedom_house.#{self.freedom_house_index}")
+    end
+  end
 
   #######################
   #######################

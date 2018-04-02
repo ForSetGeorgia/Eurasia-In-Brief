@@ -1,13 +1,13 @@
-Country,Lat,Long,Map Zoom Level,Leader
-Armenia,40.13475528,45.01072318,7,Serzh Sargsyan
-Azerbaijan,40.35321757,47.46706372,7,Ilham Aliyev
-Belarus,53.58628747,27.953389,6,Alexander Lukashenko
-Georgia,41.82754301,44.17329916,6,Giorgi Margvelashvili
-Kazakhstan,45.38592596,68.81334444,4,Nursultan Nazarbayev
-Kyrgyzstan,41.11509878,74.25524574,6,Sooronbay Jeenbekov
-Moldova,47.10710437,28.54018109,7,Igor Dodon
-Russia,57.96812298,102.41837137,3,Vladimir Putin
-Tajikistan,38.68075124,71.23215769,6,Emomali Rahmon
-Turkmenistan,38.94915421,59.06190323,5,Gurbanguly Berdimuhamedow
-Ukraine,48.89358596,31.1051692,5,Petro Poroshenko
-Uzbekistan,41.30829147,62.6297096,5,Shavkat Mirziyoyev
+Country,Lat,Long,Map Zoom Level,Leader,TI Index Value,TI Index Rank,TI URL,Freedom House Index,Freedom House URL
+Armenia,40.13475528,45.01072318,7,Serzh Sargsyan,35,107,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/armenia
+Azerbaijan,40.35321757,47.46706372,7,Ilham Aliyev,31,122,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/azerbaijan
+Belarus,53.58628747,27.953389,6,Alexander Lukashenko,44,68,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/belarus
+Georgia,41.82754301,44.17329916,6,Giorgi Margvelashvili,56,46,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,partly_free,https://freedomhouse.org/report/freedom-press/2017/georgia
+Kazakhstan,45.38592596,68.81334444,4,Nursultan Nazarbayev,31,122,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/kazakhstan
+Kyrgyzstan,41.11509878,74.25524574,6,Sooronbay Jeenbekov,29,135,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/kyrgyzstan
+Moldova,47.10710437,28.54018109,7,Igor Dodon,31,122,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,partly_free,https://freedomhouse.org/report/freedom-press/2017/moldova
+Russia,57.96812298,102.41837137,3,Vladimir Putin,29,135,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/russia
+Tajikistan,38.68075124,71.23215769,6,Emomali Rahmon,21,161,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/tajikistan
+Turkmenistan,38.94915421,59.06190323,5,Gurbanguly Berdimuhamedow,19,167,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/turkmenistan
+Ukraine,48.89358596,31.1051692,5,Petro Poroshenko,30,130,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,partly_free,https://freedomhouse.org/report/freedom-press/2017/ukraine
+Uzbekistan,41.30829147,62.6297096,5,Shavkat Mirziyoyev,22,157,https://www.transparency.org/news/feature/corruption_perceptions_index_2017,not_free,https://freedomhouse.org/report/freedom-press/2017/uzbekistan

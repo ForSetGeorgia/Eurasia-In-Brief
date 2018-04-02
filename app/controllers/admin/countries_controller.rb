@@ -1,6 +1,7 @@
 class Admin::CountriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :set_variables, only: [:new, :create, :edit, :update]
   authorize_resource
 
   # GET /admin/countries
@@ -67,9 +68,17 @@ class Admin::CountriesController < ApplicationController
       @country = Country.friendly.find(params[:id])
     end
 
+    # set variables for the form
+    def set_variables
+      @freedom_house_values = []
+      I18n.t("shared.common.freedom_house").each do |key, value|
+        @freedom_house_values << [value, key]
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      permitted = Country.globalize_attribute_names + [:lat, :lon, :map_zoom_level, :leader_image, :flag_image]
+      permitted = Country.globalize_attribute_names + [:lat, :lon, :map_zoom_level, :leader_image, :flag_image, :freedom_house_index, :freedom_house_url, :ti_index_score, :ti_index_rank, :ti_url]
       params.require(:country).permit(*permitted)
     end
 end

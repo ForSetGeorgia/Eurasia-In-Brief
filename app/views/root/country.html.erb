@@ -19,6 +19,24 @@
     <li>
       <%= image_tag(@country.leader_image.url(:thumb)) if @country.leader_image.exists? %>
     </li>
+    <li>
+      <% heading = t('.ti_link') %>
+      <% if @country.ti_url.present? %>
+        <% heading = link_to(t('.ti_link'), @country.ti_url, title: t('.ti_title'), target: :blank) %>
+      <% end %>
+      <strong><%= heading %>:</strong>
+      <%= @country.ti_index_score %>
+      <% if @country.ti_index_rank.present? %>
+        <%= "(#{t('shared.common.rank')}: #{@country.ti_index_rank}/180)" %>
+      <% end %>
+    </li>
+    <li>
+      <% heading = t('.freedom_house_link') %>
+      <% if @country.freedom_house_url.present? %>
+        <% heading = link_to(t('.freedom_house_link'), @country.freedom_house_url, title: t('.freedom_house_title'), target: :blank) %>
+      <% end %>
+      <strong><%= heading %>:</strong> <%= @country.freedom_house_index_value %>
+    </li>
   </ul>
 
   <% if @country.lat.present? && @country.lon.present? %>

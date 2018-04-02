@@ -21,6 +21,8 @@
       <th><%=t 'activerecord.attributes.country.name' %></th>
       <th><%=t 'activerecord.attributes.country.leader' %></th>
       <th><%=t 'activerecord.attributes.country.leader_image' %></th>
+      <th><%=t 'activerecord.attributes.country.ti_index_score' %></th>
+      <th><%=t 'activerecord.attributes.country.freedom_house_index' %></th>
 
       <th class='action-col'><%=t 'shared.common.actions' %></th>
     </tr>
@@ -39,6 +41,13 @@
         <td><%= country.name %></td>
         <td><%= country.leader %></td>
         <td><%= image_tag(country.leader_image.url(:thumb)) if country.leader_image.exists? %></td>
+        <td>
+          <%= country.ti_index_score %>
+          <% if country.ti_index_rank.present? %>
+            <%= "(#{t('shared.common.rank')}: #{country.ti_index_rank}/180)" %>
+          <% end %>
+        </td>
+        <td><%= country.freedom_house_index_value if country.freedom_house_index.present? %></td>
 
         <td>
           <%= if can? :edit, country

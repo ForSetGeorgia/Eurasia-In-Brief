@@ -27,6 +27,11 @@ en:
       show_title: "%{model}: %{title}"
       'no': 'No'
       'yes': 'Yes'
+      rank: Rank
+      freedom_house:
+        not_free: Not Free
+        partly_free: Partly Free
+        free: Free
     links:
       page_contents: Edit Page Text
       admin: Admin Section

@@ -10,6 +10,11 @@ en:
         map_zoom_level: Map Zoom Level
         flag_image: Flag
         leader_image: Leader Image
+        freedom_house_index: Freedom House - Freedom of Press Index - Score
+        freedom_house_url: Freedom House - Freedom of Press Index - URL
+        ti_index_score: TI Corruption Perception Index - Score
+        ti_index_rank: TI Corruption Perception Index - Rank
+        ti_url: TI Corruption Perception Index - URL
     models:
       country:
         one: Country
