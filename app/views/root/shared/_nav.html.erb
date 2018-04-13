@@ -1,0 +1,22 @@
+<nav>
+  <%= link_to root_path, class: 'navbar-logo', tabindex: 1 do %>
+    <%= image_set_tag("logo.png", { 'logo@2x.png'  => '2x' }, alt: t('shared.common.name'), title: t('shared.common.name')) %>
+  <% end %>
+  <div class="nav-slogan"></div>
+  <ul class="nav-lang">
+    <% I18n.available_locales.each do |locale| %>
+      <li class='language-switcher-item <%= "is-active" if I18n.locale == locale %>'>
+        <%=
+        if I18n.locale == locale
+          link_to t("shared.locale.short.#{locale}"),
+                  url_for(locale: locale),
+                  class: 'language-switcher-item-link is-active'
+        else
+          link_to t("shared.locale.short.#{locale}"),
+                  url_for(locale: locale),
+                  class: 'language-switcher-item-link'
+        end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

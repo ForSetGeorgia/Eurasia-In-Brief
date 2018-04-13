@@ -1,0 +1,8 @@
+<div class="app">
+  <aside><%= yield :aside %></aside>
+  <main>
+    <%= render partial: 'root/shared/nav' %>
+    <article><%= yield %></article>
+    <%= render partial: 'root/shared/footer' %>
+  </main>
+</div>

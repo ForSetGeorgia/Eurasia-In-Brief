@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html html="<%= I18n.locale %>">
+  <%= render partial: 'root/shared/head' %>
+  <body class="<%= action_name %>">
+    <%= render partial: 'root/shared/main' %>
+
+    <%= Gon::Base.render_data %>
+    <%= render partial: 'root/shared/js' %>
+    <% if Rails.env.production? %>
+      <%= render partial: 'application/google_analytics' %>
+    <% end %>
+  </body>
+</html>
