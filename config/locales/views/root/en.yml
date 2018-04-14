@@ -1,13 +1,20 @@
 ---
 en:
   root:
+    index:
+      no_story: No Story
+      no_data: No Data
+      view_story: View Story
+      time_periods: TIME PERIOD
     about:
-      title: About
+      title: About Project
+      subheader: Sociis turpis auctor donec himenaeos vel condimentum pulvinar
+      content: '<p> Penatibus montes pellentesque torquent imperdiet nec tincidunt natoque fames, cum tellus integer habitant egestas netus convallis, sem vivamus purus metus morbi vitae a. Sociis turpis auctor donec himenaeos vel condimentum pulvinar dui molestie proin, in consequat suscipit primis nostra potenti curae dis est pharetra, facilisi vehicula at mollis senectus per tempor quisque habitasse. Lacinia vestibulum sodales vulputate arcu, ultricies nisi. </p> <p> Himenaeos cursus imperdiet per tempor interdum condimentum nam aenean vitae tellus quisque tempus felis placerat, platea orci nec taciti ac praesent pharetra eget natoque pretium nulla auctor. Convallis luctus nullam mus eros potenti integer morbi sociosqu justo mi vestibulum, rutrum hac vivamus ultricies etiam sociis faucibus libero duis aptent lobortis, sodales massa cubilia tristique aliquet consequat nisl tortor purus netus. </p> <p> Penatibus montes pellentesque torquent imperdiet nec tincidunt natoque fames, cum tellus integer habitant egestas netus convallis, sem vivamus purus metus morbi vitae a. Sociis turpis auctor donec himenaeos vel condimentum pulvinar dui molestie proin, in consequat suscipit primis nostra potenti curae dis est pharetra, facilisi vehicula at mollis senectus per tempor quisque habitasse. Lacinia vestibulum sodales vulputate arcu, ultricies nisi. </p> <p> Himenaeos cursus imperdiet per tempor interdum condimentum nam aenean vitae tellus quisque tempus felis placerat, platea orci nec taciti ac praesent pharetra eget natoque pretium nulla auctor. Convallis luctus nullam mus eros potenti integer morbi sociosqu justo mi vestibulum, rutrum hac vivamus ultricies etiam sociis faucibus libero duis aptent lobortis, sodales massa cubilia tristique aliquet consequat nisl tortor purus netus. </p>'
     country:
       leader: Leader
-      ti_link: Corruption Perception Index
+      ti_link: Corruption <br />Perception Index
       ti_title: Click to view Transparency International's Corruption Perception Index
-      freedom_house_link: Freedom of Press Index
+      freedom_house_link: Freedom of  <br />Press Index
       freedom_house_title: Click to view Freedom House's Freedom of the Press Index
       view_story: View Story
       no_stories: There are no stories on file at this time.

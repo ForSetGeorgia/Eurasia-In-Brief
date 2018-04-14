@@ -18,6 +18,7 @@
       <th></th>
 
       <th><%=t 'activerecord.attributes.country.flag_image' %></th>
+      <th><%=t 'activerecord.attributes.country.flag_image2' %></th>
       <th><%=t 'activerecord.attributes.country.name' %></th>
       <th><%=t 'activerecord.attributes.country.leader' %></th>
       <th><%=t 'activerecord.attributes.country.area' %></th>
@@ -38,8 +39,8 @@
                       admin_country_path(country),
                       class: 'btn btn-default' %>
         </td>
-
         <td><%= image_tag(country.flag_image.url(:thumb)) if country.flag_image.exists? %></td>
+        <td><%= image_tag(country.flag_image2.url(:thumb)) if country.flag_image2.exists? %></td>
         <td><%= country.name %></td>
         <td>
           <%= country.leader %>

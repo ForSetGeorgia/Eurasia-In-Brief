@@ -1,1 +1,5 @@
-<footer>footer</footer>
+<footer>
+  <%= link_to root_path, tabindex: 99 do %>
+    <%= image_set_tag("eunet_logo.png", { 'eunet_logo@2x.png'  => '2x' }, alt: t('shared.common.eurasianet.name'), title: t('shared.common.eurasianet.name')) %>
+  <% end %>
+</footer>

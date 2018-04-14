@@ -48,7 +48,15 @@ class Country < AddMissingTranslation
                     :convert_options => {
                       :'thumb' => '-quality 85'
                     }
-
+  has_attached_file :flag_image2,
+                    :url => "/system/country/:id/flag2/:style/:basename.:extension",
+                    :styles => {
+                        :'thumb' => {:geometry => "50>"},
+                        :'medium' => {:geometry => "100>"}
+                    },
+                    :convert_options => {
+                      :'thumb' => '-quality 85'
+                    }
   #######################
   ## VALIDATIONS
 
@@ -68,7 +76,9 @@ class Country < AddMissingTranslation
   validates_attachment :flag_image,
     content_type: { content_type: ["image/jpeg", "image/png"] },
     size: { in: 0..5.megabytes }
-
+  validates_attachment :flag_image2,
+    content_type: { content_type: ["image/jpeg", "image/png"] },
+    size: { in: 0..5.megabytes }
 
   #######################
   ## SCOPES

@@ -81,6 +81,19 @@
       </div>
     </div>
     <div class="col-md-4">
+      <div class="file input optional form-group" id="country_flag_image2_input">
+        <span class="form-label">
+          <label for="country_flag_image2" class=" control-label"><%= t('activerecord.attributes.country.flag_image') %></label>
+        </span>
+        <% if object.flag_image2.exists? %>
+          <%= image_tag(object.flag_image2.url(:thumb)) %>
+        <% end %>
+        <span class="form-wrapper">
+          <input accept=".jpg,.jpeg,.png" id="country_flag_image2" name="country[flag_image2]" type="file">
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4">
       <div class="file input optional form-group" id="country_leader_image_input">
         <span class="form-label">
           <label for="country_leader_image" class=" control-label"><%= t('activerecord.attributes.country.leader_image') %></label>

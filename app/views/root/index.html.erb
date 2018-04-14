@@ -1,44 +1,83 @@
-<% page_title t 'shared.common.name' %>
-<% if @time_periods.present? && @countries.present? %>
-  <% content_for :aside do %>
-    <div class="time_periods">
-      <%= t('.time_periods') %>
-      <ul>
-        <% @time_periods.each do |time_period| %>
-          <li><%= link_to time_period.label, params.slice(:sort).merge(time_period: time_period) %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% @countries.each_with_index do |country, idx_country| %><div class="country">
-      <div class="country-header">
-        <h2><%= link_to country.name, country_path(country) %></h2>
-        <div>
-          <%= image_tag(country.flag_image.url(:thumb)) if country.flag_image.exists? %>
-        </div>
-      </div>
-      <div class="country-story">
-        <%
-          story = @stories.select{|x| x.country_id == country.id}.first
-          if story.present?
-        %>
-          <h3 class="country-story-title"><%= story.title %></h3>
-          <div class="country-story-text">
-            <%= simple_format story.content %>
+<aside class="other"><%= yield :aside %></aside>
+<article>
+  <section class="section-scroll">
+    <% if @time_periods.present? && @countries.present? %>
+      <% content_for :aside do %>
+        <div class="period-bar">
+          <label><%= t('.time_periods') %></label>
+          <div class="period-bar-container">
+            <div class="previous-period">
+              <% timePeriod = @periods[0] %>
+              <% if timePeriod.nil? %>
+                <%= image_set_tag("previous.png", { 'previous@2x.png'  => '2x' }, alt: t('shared.common.previous'), title: t('shared.common.previous'), class: 'disabled') %>
+              <% else %>
+                <%= link_to params.slice(:sort).merge(time_period: timePeriod), tabindex: 1 do %>
+                  <%= image_set_tag("previous.png", { 'previous@2x.png'  => '2x' }, alt: timePeriod.label, title: timePeriod.label) %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="current-period">
+              <% timePeriod = @periods[1] %>
+              <% if timePeriod.nil? %>
+                <%= t('shared.common.nodata') %>
+              <% else %>
+                <%= link_to timePeriod.label, params.slice(:sort).merge(time_period: timePeriod) %>
+              <% end %>
+            </div>
+            <div class="next-period">
+              <% timePeriod = @periods[2] %>
+              <% if timePeriod.nil? %>
+                <%= image_set_tag("next.png", { 'next@2x.png'  => '2x' }, alt: t('shared.common.next'), title: t('shared.common.next'), class: 'disabled') %>
+              <% else %>
+                <%= link_to params.slice(:sort).merge(time_period: timePeriod), tabindex: 1 do %>
+                  <%= image_set_tag("next.png", { 'next@2x.png'  => '2x' }, alt: timePeriod.label, title: timePeriod.label) %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-          <% if story.link.present? %>
-            <%= link_to t('.view_story'), story.link, target: :blank, class: 'country-story-readmore' %>
-          <% end %>
-        <% else %>
-          <p class="country-story-nostory">
-            <%= t('.no_story') %>
-          </p>
+        </div>
+      <% end %>
+      <aside class="other"><%= yield :aside %></aside>
+      <div id="top"></div>
+      <% @countries.each_with_index do |country, idx_country| %><div class="country">
+        <%= link_to country_path(country), class: 'country-header' do %>
+          <h2><%= country.name %></h2>
+          <%= image_set_tag(country.flag_image.url(:thumb), { country.flag_image2.url(:thumb)  => '2x' }, class: 'flag') if country.flag_image.exists? %>
+          <%= image_set_tag("arrow_black.png", { 'arrow_black@2x.png'  => '2x' }, class: 'arrow') %>
         <% end %>
-      </div>
-    </div><!--
---><% end %>
-<% else %>
-  <p class="alert alert-warning">
-    <%= t('.no_data') %>
-  </p>
-<% end %>
+
+        <div class="country-story">
+          <%
+            story = @stories.select{|x| x.country_id == country.id}.first
+            if story.present?
+          %>
+            <h3 class="story-title"><%= story.title %></h3>
+            <div class="story-text">
+              <%= truncate(strip_tags(story.content), length: 120, separator: ' ') %>
+            </div>
+            <% if story.link.present? %>
+              <div class="story-readmore">
+                <%= link_to t('.view_story'), story.link, target: :blank %>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="story-nostory">
+              <%= t('.no_story') %>
+            </p>
+          <% end %>
+        </div>
+      </div><!--
+    --><% end %>
+    <% else %>
+      <p class="text">
+        <%= t('.no_data') %>
+      </p>
+    <% end %>
+    <div class="up">
+      <a href="#top">
+        <%= image_set_tag("arrow_black_up.png", { 'arrow_black_up@2x.png'  => '2x' }, class: 'arrow_up') %>
+        <span><%= t('shared.common.up') %></span>
+      </a>
+    </div>
+  </section>
+</article>

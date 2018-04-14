@@ -17,8 +17,21 @@ class RootController < ApplicationController
       # get stories
       if @time_period.present?
         @stories = Story.by_locale(I18n.locale).by_time_period(@time_period.id)
-
         @countries = Country.sorted
+
+        timePeriodIds = @time_periods.pluck(:id)
+        timePeriodIndex = timePeriodIds.find_index(@time_period.id)
+
+        before = nil
+        after = nil
+        if timePeriodIndex > 0
+          before = @time_periods[timePeriodIndex - 1]
+        end
+        if timePeriodIndex + 1 < timePeriodIds.length
+          after = @time_periods[timePeriodIndex + 1]
+        end
+
+        @periods = [before, @time_period, after]
       end
     end
   end
@@ -30,6 +43,20 @@ class RootController < ApplicationController
       @stories = Story.with_time_period_translations.by_locale(I18n.locale).by_country(@country.id).sort_time_period
 
       @countries = Country.sorted
+
+
+      countryIds = @countries.pluck(:id)
+      countryIndex = countryIds.find_index(@country.id)
+      @next_country = nil
+      if countryIndex + 1 < countryIds.length
+        @next_country = @countries[countryIndex + 1]
+      else
+        firstCountry = @countries.first()
+        if @country != firstCountry
+          @next_country = firstCountry
+        end
+      end
+
 
       @add_map_assets = true
       gon.mapbox_token = ENV['MAPBOX_TOKEN']

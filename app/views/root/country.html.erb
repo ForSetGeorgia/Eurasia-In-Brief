@@ -1,79 +1,142 @@
-<% page_title @country.name %>
-
-<%if @countries.present? %>
-  <div class="countries">
-    <ul>
-      <% @countries.each_with_index do |country, idx_country| %>
-        <li><%= link_to country.name, country_path(country), style: params[:id] == country.slug ? "font-weight: bold;" : "" %></li>
-      <% end %>
-    </ul>
-  </div>
+<% content_for :aside do %>
+  <%if @countries.present? %>
+    <div class="countries-list">
+      <ul>
+        <% @countries.each_with_index do |country, idx_country| %>
+          <li<%= params[:id] == country.slug ? ' class=active' : '' %>><%= link_to country.name, country_path(country) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>
 
-<div class="country-profile">
-  <ul>
-    <li>
-      <%= image_tag(@country.flag_image.url(:thumb)) if @country.flag_image.exists? %>
-    </li>
-    <li><strong><%= t('.leader') %>:</strong> <%= @country.leader %></li>
-    <li>
-      <%= image_tag(@country.leader_image.url(:thumb)) if @country.leader_image.exists? %>
-    </li>
-    <li><strong><%= t('.area') %>:</strong> <%= "#{number_with_delimiter(@country.area)} km<sup>2</sup>".html_safe if @country.area.present? %></li>
-    <li><strong><%= t('.population') %>:</strong> <%= number_with_delimiter(@country.population) %></li>
-    <li><strong><%= t('.gdp') %>:</strong> <%= "$#{number_with_delimiter(@country.gdp)}" if @country.gdp.present? %></li>
-    <li>
-      <% heading = t('.ti_link') %>
-      <% if @country.ti_url.present? %>
-        <% heading = link_to(t('.ti_link'), @country.ti_url, title: t('.ti_title'), target: :blank) %>
+<article>
+  <header>
+    <div class="countries-popup-toggle">
+      <%= image_set_tag('country_menu.png', { 'country_menu@2x.png'  => '2x' }, class: 'flag') %>
+    </div>
+    <% nm = @country.name.upcase %>
+    <h1><span><%= nm[0..2] %></span><%= nm[3..-1] %></h1>
+  </header>
+  <section class="section-fixed">
+    <div class="country-map">
+      <% if @country.lat.present? && @country.lon.present? %>
+        <div id="country_map" class="map" data-lat="<%= @country.lat %>" data-lon="<%= @country.lon %>" data-map-zoom-level="<%= @country.map_zoom_level %>"></div>
       <% end %>
-      <strong><%= heading %>:</strong>
-      <%= @country.ti_index_score %>
-      <% if @country.ti_index_rank.present? %>
-        <%= "(#{t('shared.common.rank')}: #{@country.ti_index_rank}/180)" %>
-      <% end %>
-    </li>
-    <li>
-      <% heading = t('.freedom_house_link') %>
-      <% if @country.freedom_house_url.present? %>
-        <% heading = link_to(t('.freedom_house_link'), @country.freedom_house_url, title: t('.freedom_house_title'), target: :blank) %>
-      <% end %>
-      <strong><%= heading %>:</strong> <%= @country.freedom_house_index_value %>
-    </li>
-  </ul>
+    </div>
 
-  <% if @country.lat.present? && @country.lon.present? %>
-    <div id="country_map" data-lat="<%= @country.lat %>" data-lon="<%= @country.lon %>" data-map-zoom-level="<%= @country.map_zoom_level %>"></div>
-
-  <% end %>
-</div>
-
-
-
-<% if @stories.present? %>
-  <div class="stories">
-    <% @stories.each do |story| %>
-      <div class="story-item">
-        <h3><%= story.title %></h3>
-        <div class="story-date">
-          <%= story.time_period.label %>
-        </div>
-        <% if story.image.exists? %>
-          <div class="story-image">
-            <%= image_tag(story.image.url(:medium)) %>
-          </div>
+    <div class="country-profile">
+      <div class="stats">
+        <ul>
+          <li>
+            <%= image_set_tag(@country.flag_image.url(:thumb), { @country.flag_image2.url(:thumb)  => '2x' }, class: 'flag') if @country.flag_image.exists? %>
+          </li>
+          <li><strong><%= t('.area') %>:</strong> <%= "#{number_with_delimiter(@country.area)} km<sup>2</sup>".html_safe if @country.area.present? %></li>
+          <li><strong><%= t('.population') %>:</strong> <%= number_with_delimiter(@country.population) %></li>
+          <li><strong><%= t('.gdp') %>:</strong> <%= "$#{number_with_delimiter(@country.gdp)}" if @country.gdp.present? %></li>
+          <li>
+            <% heading = simple_format t('.ti_link') + ':' %>
+            <% if @country.ti_url.present? %>
+              <% heading = link_to(heading, @country.ti_url, title: t('.ti_title'), target: :blank) %>
+            <% end %>
+            <strong><%= heading %></strong>
+            <%= @country.ti_index_score %>
+            <% if @country.ti_index_rank.present? %>
+              <%= "(#{t('shared.common.rank')}: #{@country.ti_index_rank}/180)" %>
+            <% end %>
+          </li>
+          <li>
+            <% heading = simple_format t('.freedom_house_link') + ':' %>
+            <% if @country.freedom_house_url.present? %>
+              <% heading = link_to(heading, @country.freedom_house_url, title: t('.freedom_house_title'), target: :blank) %>
+            <% end %>
+            <strong><%= heading %></strong> <%= @country.freedom_house_index_value %>
+          </li>
+        </ul>
+        <% if @next_country.present? %>
+          <%= link_to country_path(@next_country), class: 'next-country' do %>
+            <div class="row">
+              <div>
+                <%= t('shared.common.next') %>
+                <strong><%= @next_country.name.upcase %></strong>
+              </div>
+              <div>
+                <%= image_set_tag('arrow.png', { 'arrow@2x.png'  => '2x' }, class: 'arrow') %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-        <div class="story-text">
-          <%= simple_format story.content %>
-        </div>
-        <% if story.link.present? %>
-          <%= link_to t('.view_story'), story.link, target: :blank, class: 'btn btn-default btn-small' %>
+      </div><div class="leader">
+        <ul>
+          <li class="leader-name"><strong><%= t('.leader') %>:</strong> <%= @country.leader %></li>
+          <li>
+            <%= image_tag(@country.leader_image.url(:thumb)) if @country.leader_image.exists? %>
+          </li>
+        </ul>
+        <% if @next_country.present? %>
+          <%= link_to country_path(@next_country), class: 'next-country' do %>
+            <div class="row">
+              <div>
+                <%= t('shared.common.next') %>
+                <strong><%= @next_country.name.upcase %></strong>
+              </div>
+              <div>
+                <%= image_set_tag('arrow.png', { 'arrow@2x.png'  => '2x' }, class: 'arrow') %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
+    </div>
+  </section><section class="section-scroll">
+    <div id="top" class="stories">
+      <% if @stories.present? %>
+          <% @stories.each do |story| %>
+            <div class="story">
+              <h3 class="story-title"><%= story.title %></h3>
+              <div class="story-row">
+                <% if story.image.exists? %>
+                  <div class="story-image">
+                    <%= image_tag(story.image.url(:thumb)) %>
+                  </div>
+                <% end %>
+                <div class="story-date">
+                  <%= story.time_period.label %>
+                </div>
+              </div>
+              <div class="story-text">
+                <%= simple_format story.content %>
+              </div>
+              <% if story.link.present? %>
+                <div class="story-readmore">
+                  <%= link_to t('.view_story'), story.link, target: :blank %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      <% else %>
+        <p class="text">
+          <%= t('.no_stories') %>
+        </p>
+      <% end %>
+    </div>
+    <div class="up">
+      <a href="#top">
+        <%= image_set_tag("arrow_black_up.png", { 'arrow_black_up@2x.png'  => '2x' }, class: 'arrow_up') %>
+        <span><%= t('shared.common.up') %></span>
+      </a>
+    </div>
+  </section>
+</article>
+
+<% content_for :popup do %>
+  <div class="countries-popup">
+    <div class="bg"></div>
+    <div class="content">
+      <div class="close">
+        <%= image_tag('close') %>
+      </div>
+      <%= yield :aside %>
+    </div>
   </div>
-<% else %>
-  <p class="alert alert-warning">
-    <%= t('.no_stories') %>
-  </p>
 <% end %>

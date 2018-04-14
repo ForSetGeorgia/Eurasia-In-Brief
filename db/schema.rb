@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402110118) do
+ActiveRecord::Schema.define(version: 20180414153308) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "slug",                      limit: 255
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 20180402110118) do
     t.integer  "area",                      limit: 4
     t.integer  "population",                limit: 4
     t.integer  "gdp",                       limit: 4
+    t.string   "flag_image2_file_name",     limit: 255
+    t.string   "flag_image2_content_type",  limit: 255
+    t.integer  "flag_image2_file_size",     limit: 4
+    t.datetime "flag_image2_updated_at"
   end
 
   add_index "countries", ["slug"], name: "index_countries_on_slug", unique: true, using: :btree

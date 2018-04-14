@@ -1,1 +1,16 @@
-<% page_title t('.title') %>
+<article>
+  <section class="section-fixed">
+    <h1><%= t('.title') %></h1><div class="arrow-wrapper">
+      <%= image_set_tag("arrow_black.png", { 'arrow_black@2x.png'  => '2x' }, class: 'arrow') %>
+    </div>
+  </section><section class="section-scroll">
+    <h2 id="top"><%= t('.subheader') %></h2>
+    <%= simple_format t('.content') %>
+    <div class="up">
+      <a href="#top">
+        <%= image_set_tag("arrow_black_up.png", { 'arrow_black_up@2x.png'  => '2x' }, class: 'arrow_up') %>
+        <span><%= t('shared.common.up') %></span>
+      </a>
+    </div>
+  </section>
+</article>

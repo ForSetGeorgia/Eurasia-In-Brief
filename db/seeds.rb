@@ -53,6 +53,7 @@ if ENV['create_country_records'].present?
       # get reference to images
       leader = File.open("#{path}/country_leader_images/#{country[0].downcase}.jpg")
       flag = File.open("#{path}/country_flags/#{country[0].downcase}.png")
+      flag2 = File.open("#{path}/country_flags/#{country[0].downcase}@2x.png")
 
       c.lat = country[1]
       c.lon = country[2]
@@ -60,6 +61,7 @@ if ENV['create_country_records'].present?
       c.leader = country[4]
       c.leader_image =leader
       c.flag_image =flag
+      c.flag_image2 =flag2
       c.area = country[5]
       c.population = country[6]
       c.gdp = country[7]

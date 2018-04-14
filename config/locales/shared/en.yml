@@ -23,6 +23,7 @@ en:
       developer:
         slogan: ForSet - Communicating With Data
       name: Eurasia In Brief
+      slogan: Nec quisque eu mi vestibulum maecenas magnis interdum, suspendisse etiam facilisi tellus viverra dapibus vehicula
       description: This is a description of the project that will appear in the meta tags.
       show_title: "%{model}: %{title}"
       'no': 'No'
@@ -32,6 +33,11 @@ en:
         not_free: Not Free
         partly_free: Partly Free
         free: Free
+      previous: Previous
+      next: Next
+      nodata: No Data
+      up: top
+      about: About
     links:
       page_contents: Edit Page Text
       admin: Admin Section
