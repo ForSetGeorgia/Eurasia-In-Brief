@@ -29,7 +29,13 @@
       ],
       mapContainer.getAttribute('data-map-zoom-level')
     )
-    L.tileLayer(gon.mapbox_url + '?access_token=' + gon.mapbox_token, {}).addTo(map);
+    // L.tileLayer(gon.mapbox_url + '?access_token=' + gon.mapbox_token, {}).addTo(map);
+    L.tileLayer(gon.mapbox_url, {
+        maxZoom: 18,
+        id: 'country_map',
+        accessToken: gon.mapbox_token
+    }).addTo(map);
+
   }
 
 
