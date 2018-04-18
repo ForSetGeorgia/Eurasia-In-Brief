@@ -3,8 +3,6 @@
     <%= link_to root_path, tabindex: 1, class: 'nav-logo' do %>
       <%= image_set_tag("logo.png", { 'logo@2x.png'  => '2x' }, alt: t('shared.common.name'), title: t('shared.common.name')) %>
     <% end %>
-    <%= link_to t('shared.common.about'), about_path, class: 'nav-about other' %>
   </div>
   <div class="nav-slogan"><p><%= t("shared.common.slogan") %></p></div>
-  <div class="nav-more"><%= link_to t('shared.common.about'), about_path, class: 'nav-about desktop' %></div>
 </nav>
