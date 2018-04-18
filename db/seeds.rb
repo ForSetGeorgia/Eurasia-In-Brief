@@ -67,9 +67,7 @@ if ENV['create_country_records'].present?
       c.gdp = country[7]
       c.ti_index_score = country[8]
       c.ti_index_rank = country[9]
-      c.ti_url = country[10]
-      c.freedom_house_index = country[11]
-      c.freedom_house_url = country[12]
+      c.freedom_house_index = country[10]
     end
   end
 end

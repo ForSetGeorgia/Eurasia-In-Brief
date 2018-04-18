@@ -45,22 +45,13 @@
 
   <div class="row">
     <div class="col-md-4">
-      <%= f.input :ti_url, as: :url %>
+      <%= f.input :freedom_house_index, as: :select, collection: @freedom_house_values %>
     </div>
     <div class="col-md-4">
       <%= f.input :ti_index_score, input_html: {class: 'long_number'} %>
     </div>
     <div class="col-md-4">
       <%= f.input :ti_index_rank, input_html: {class: 'long_number'} %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <%= f.input :freedom_house_url, as: :url %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :freedom_house_index, as: :select, collection: @freedom_house_values %>
     </div>
   </div>
 
@@ -83,7 +74,7 @@
     <div class="col-md-4">
       <div class="file input optional form-group" id="country_flag_image2_input">
         <span class="form-label">
-          <label for="country_flag_image2" class=" control-label"><%= t('activerecord.attributes.country.flag_image') %></label>
+          <label for="country_flag_image2" class=" control-label"><%= t('activerecord.attributes.country.flag_image2') %></label>
         </span>
         <% if object.flag_image2.exists? %>
           <%= image_tag(object.flag_image2.url(:thumb)) %>

@@ -32,25 +32,31 @@
             <%= image_set_tag(@country.flag_image.url(:thumb), { @country.flag_image2.url(:thumb)  => '2x' }, class: 'flag') if @country.flag_image.exists? %>
           </li>
           <li><strong><%= t('.area') %>:</strong> <%= "#{number_with_delimiter(@country.area)} km<sup>2</sup>".html_safe if @country.area.present? %></li>
-          <li><strong><%= t('.population') %>:</strong> <%= number_with_delimiter(@country.population) %></li>
-          <li><strong><%= t('.gdp') %>:</strong> <%= "$#{number_with_delimiter(@country.gdp)}" if @country.gdp.present? %></li>
           <li>
-            <% heading = simple_format t('.ti_link') + ':' %>
-            <% if @country.ti_url.present? %>
-              <% heading = link_to(heading, @country.ti_url, title: t('.ti_title'), target: :blank) %>
-            <% end %>
-            <strong><%= heading %></strong>
+            <strong><%= link_to "#{t('.population')}:", 'https://data.worldbank.org/indicator/SP.POP.TOTL',
+                          title: t('.population_title'), target: :blank %></strong>
+            <%= number_with_delimiter(@country.population) %>
+          </li>
+          <li>
+            <strong><%= link_to "#{t('.gdp')}:", 'https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?view=map',
+                          title: t('.gdp_title'), target: :blank %></strong>
+            <%= "$#{number_with_delimiter(@country.gdp)}" if @country.gdp.present? %></li>
+          <li>
+            <strong><%= link_to 'http://cpi.transparency.org/',
+                          title: t('.ti_title'), target: :blank do %>
+                        <%= simple_format "#{t('.ti_link')}:" %>
+                    <% end %></strong>
             <%= @country.ti_index_score %>
             <% if @country.ti_index_rank.present? %>
               <%= "(#{t('shared.common.rank')}: #{@country.ti_index_rank}/180)" %>
             <% end %>
           </li>
           <li>
-            <% heading = simple_format t('.freedom_house_link') + ':' %>
-            <% if @country.freedom_house_url.present? %>
-              <% heading = link_to(heading, @country.freedom_house_url, title: t('.freedom_house_title'), target: :blank) %>
-            <% end %>
-            <strong><%= heading %></strong> <%= @country.freedom_house_index_value %>
+            <strong><%= link_to 'https://freedomhouse.org/report-types/freedom-press',
+                          title: t('.freedom_house_title'), target: :blank do %>
+                      <%= simple_format "#{t('.freedom_house_link')}:" %>
+                    <% end %></strong>
+            <%= @country.freedom_house_index_value %>
           </li>
         </ul>
         <% if @next_country.present? %>

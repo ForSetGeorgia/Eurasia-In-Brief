@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414153308) do
+ActiveRecord::Schema.define(version: 20180418190621) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "slug",                      limit: 255
@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 20180414153308) do
     t.integer  "flag_image_file_size",      limit: 4
     t.datetime "flag_image_updated_at"
     t.string   "freedom_house_index",       limit: 255
-    t.string   "freedom_house_url",         limit: 255
     t.integer  "ti_index_score",            limit: 4
     t.integer  "ti_index_rank",             limit: 4
-    t.string   "ti_url",                    limit: 255
     t.integer  "area",                      limit: 4
     t.integer  "population",                limit: 4
     t.integer  "gdp",                       limit: 4

@@ -81,7 +81,7 @@ class Admin::CountriesController < ApplicationController
       permitted = Country.globalize_attribute_names +
         [
           :lat, :lon, :map_zoom_level, :leader_image, :flag_image, :flag_image2, :area, :population,
-          :freedom_house_index, :freedom_house_url, :ti_index_score, :ti_index_rank, :ti_url
+          :freedom_house_index, :ti_index_score, :ti_index_rank
         ]
       params.require(:country).permit(*permitted)
     end
