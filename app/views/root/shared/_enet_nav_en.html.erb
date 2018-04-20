@@ -1,0 +1,209 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="brand" href="https://eurasianet.org/">
+           <%= image_tag "logo.svg" %>
+        </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="glyphicon glyphicon-th"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#" class="regions-menu-toggle">Regions <span class="caret"></span></a></li>
+          <li><a href="#" class="topics-menu-toggle">Topics <span class="caret"></span></a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle more-menu-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://eurasianet.org/visual-stories">Visual Stories</a></li>
+            <li><a href="https://eurasianet.org/video">Video <span class="glyphicon glyphicon-facetime-video"></span></a></li>
+            <li><a href="https://eurasianet.org/audio">Audio <span class="glyphicon glyphicon glyphicon-volume-up"></span></a></li>
+            <li><a href="https://eurasianet.org/interactive">Interactive</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-label">Blogs</li>
+            <li><a href="https://eurasianet.org/voices/tamadatales">Tamada Tales</a></li>
+            <li><a href="https://eurasianet.org/voices/thebugpit">The Bug Pit</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-label">Podcasts <span class="glyphicon glyphicon-volume-up"></span></li>
+            <li><a href="https://eurasianet.org/podcast/central-asianist">The Central Asianist</a></li>
+            <li><a href="https://eurasianet.org/podcast/expert-opinions">Expert Opinions</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="https://eurasianet.org/about/mission">About Eurasianet</a></li>
+          </ul>
+        </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input id="search-input" class="form-control" placeholder="Search" type="text">
+            <div class="search-suggester">
+              <ul class="search-suggester--list search-suggester--author"></ul>
+              <ul class="search-suggester--list search-suggester--region"></ul>
+            </div>
+          </div>
+          <button type="submit" id="search-submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to 'русский', root_path(:ru) %></li>
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="regions-menu">
+  <a class="close-menu" href="#">X</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-1">
+        <h4>Caucasus</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/region/armenia">Armenia</a></li>
+          <li><a href="https://eurasianet.org/region/azerbaijan">Azerbaijan</a></li>
+          <li><a href="https://eurasianet.org/region/georgia">Georgia</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Central Asia</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/region/kazakhstan">Kazakhstan</a></li>
+          <li><a href="https://eurasianet.org/region/kyrgyzstan">Kyrgyzstan</a></li>
+          <li><a href="https://eurasianet.org/region/tajikistan">Tajikistan</a></li>
+          <li><a href="https://eurasianet.org/region/turkmenistan">Turkmenistan</a></li>
+          <li><a href="https://eurasianet.org/region/uzbekistan">Uzbekistan</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Eastern Europe</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/region/russia">Russia</a></li>
+          <li><a href="https://eurasianet.org/region/baltics">The Baltics</a></li>
+          <li><a href="https://eurasianet.org/region/belarus">Belarus</a></li>
+          <li><a href="https://eurasianet.org/region/moldova">Moldova</a></li>
+          <li><a href="https://eurasianet.org/region/ukraine">Ukraine</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Eurasian Fringe</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/region/china">China</a></li>
+          <li><a href="https://eurasianet.org/region/turkey">Turkey</a></li>
+          <li><a href="https://eurasianet.org/region/iran">Iran</a></li>
+          <li><a href="https://eurasianet.org/region/afghanistan">Afghanistan</a></li>
+          <li><a href="https://eurasianet.org/region/middle-east">Middle East</a></li>
+          <li><a href="https://eurasianet.org/region/united-states">United States</a></li>
+          <li><a href="https://eurasianet.org/region/eu">EU</a></li>
+          <li><a href="https://eurasianet.org/region/south-asia">South Asia</a></li>
+          <li><a href="https://eurasianet.org/region/mongolia">Mongolia</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Conflict Zones</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/region/eastern-ukraine">Eastern Ukraine</a></li>
+          <li><a href="https://eurasianet.org/region/crimea">Crimea</a></li>
+          <li><a href="https://eurasianet.org/region/abkhazia">Abkhazia</a></li>
+          <li><a href="https://eurasianet.org/region/transnistria">Transnistria</a></li>
+          <li><a href="https://eurasianet.org/region/nagorno-karabakh">Nagorno-Karabakh</a></li>
+          <li><a href="https://eurasianet.org/region/south-ossetia">South Ossetia</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="topics-menu">
+  <a class="close-menu" href="#">X</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-1">
+        <h4>Politics</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/topic/press-freedom">Press Freedom</a></li>
+          <li><a href="https://eurasianet.org/topic/elections">Elections</a></li>
+          <li><a href="https://eurasianet.org/topic/authoritarianism">Authoritarianism</a></li>
+          <li><a href="https://eurasianet.org/topic/cult-of-personality">Cult of Personality</a></li>
+          <li><a href="https://eurasianet.org/topic/soft-power">Soft Power</a></li>
+          <li><a href="https://eurasianet.org/topic/foreign-policy">Foreign Policy</a></li>
+          <li><a href="https://eurasianet.org/topic/rule-of-law">Rule of Law</a></li>
+          <li><a href="https://eurasianet.org/topic/dissent">Dissent</a></li>
+          <li><a href="https://eurasianet.org/topic/illiberalism">Illiberalism</a></li>
+          <li><a href="https://eurasianet.org/topic/propaganda">Propaganda</a></li>
+          <li><a href="https://eurasianet.org/topic/human-rights">Human Rights</a></li>
+          <li><a href="https://eurasianet.org/topic/national-identity">National Identity</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Economics</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/topic/business">Business</a></li>
+          <li><a href="https://eurasianet.org/topic/investment">Investment</a></li>
+          <li><a href="https://eurasianet.org/topic/banking-and-finance">Banking &amp; Finance</a></li>
+          <li><a href="https://eurasianet.org/topic/innovation-and-technology">Innovation &amp; Technology</a></li>
+          <li><a href="https://eurasianet.org/topic/internet">Internet</a></li>
+          <li><a href="https://eurasianet.org/topic/transparency">Transparency</a></li>
+          <li><a href="https://eurasianet.org/topic/agriculture">Agriculture</a></li>
+          <li><a href="https://eurasianet.org/topic/belt-and-road-initiative">Belt and Road Initiative</a></li>
+          <li><a href="https://eurasianet.org/topic/shanghai-cooperation-organization-(SCO)">SCO</a></li>
+          <li><a href="https://eurasianet.org/topic/eurasian-economic-union-(EAEU)">EEU</a></li>
+          <li><a href="https://eurasianet.org/topic/oil-and-gas">Oil &amp; Gas</a></li>
+          <li><a href="https://eurasianet.org/topic/mining">Mining</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Society</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/topic/diaspora">Diaspora</a></li>
+          <li><a href="https://eurasianet.org/topic/religion">Religion</a></li>
+          <li><a href="https://eurasianet.org/topic/minorities">Minorities</a></li>
+          <li><a href="https://eurasianet.org/topic/interethnic-relations">Interethnic Relations</a></li>
+          <li><a href="https://eurasianet.org/topic/values">Values</a></li>
+          <li><a href="https://eurasianet.org/topic/women's-rights">Women's Rights</a></li>
+          <li><a href="https://eurasianet.org/topic/LGBT">LGBT</a></li>
+          <li><a href="https://eurasianet.org/topic/media">Media</a></li>
+          <li><a href="https://eurasianet.org/topic/social-media">Social Media</a></li>
+          <li><a href="https://eurasianet.org/topic/language">Language</a></li>
+          <li><a href="https://eurasianet.org/topic/arts-and-culture">Arts &amp; Culture</a></li>
+          <li><a href="https://eurasianet.org/topic/education">Education</a></li>
+          <li><a href="https://eurasianet.org/topic/science">Science</a></li>
+          <li><a href="https://eurasianet.org/topic/environment">Environment</a></li>
+          <li><a href="https://eurasianet.org/topic/public-health">Public Health</a></li>
+          <li><a href="https://eurasianet.org/topic/rural-life">Rural Life</a></li>
+          <li><a href="https://eurasianet.org/topic/urban-issues">Urban Issues</a></li>
+          <li><a href="https://eurasianet.org/topic/social-entrepreneurship">Social Entrepreneurship</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Security</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/topic/radicalism">Radicalism</a></li>
+          <li><a href="https://eurasianet.org/topic/narcotics-trafficking">Narcotics Trafficking</a></li>
+          <li><a href="https://eurasianet.org/topic/conflicts">Conflicts</a></li>
+          <li><a href="https://eurasianet.org/topic/csto">CSTO</a></li>
+          <li><a href="https://eurasianet.org/topic/nato">NATO</a></li>
+          <li><a href="https://eurasianet.org/topic/black-sea">Black Sea</a></li>
+          <li><a href="https://eurasianet.org/topic/caspian-sea">Caspian Sea</a></li>
+          <li><a href="https://eurasianet.org/topic/energy">Energy</a></li>
+          <li><a href="https://eurasianet.org/topic/arms-sales">Arms Sales</a></li>
+          <li><a href="https://eurasianet.org/topic/base-politics">Base Politics</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h4>Academics</h4>
+        <ul>
+          <li><a href="https://eurasianet.org/topic/history">History</a></li>
+          <li><a href="https://eurasianet.org/topic/science">Science</a></li>
+          <li><a href="https://eurasianet.org/topic/economics">Economics</a></li>
+          <li><a href="https://eurasianet.org/topic/sociology">Sociology</a></li>
+          <li><a href="https://eurasianet.org/topic/demographics">Demographics</a></li>
+          <li><a href="https://eurasianet.org/topic/data">Data</a></li>
+          <li><a href="https://eurasianet.org/topic/law">Law</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
