@@ -20,6 +20,7 @@ set :deploy_to, -> { "#{user_path}/#{application}" }
 set :full_current_path, -> { "#{deploy_to}/#{current_path}" }
 set :full_shared_path, -> { "#{deploy_to}/#{shared_path}" }
 set :full_tmp_path, -> { "#{deploy_to}/tmp" }
+set :identity_file_with_arg, -> { "#{identity_file_arg} #{identity_file}"}
 set_default :branch, 'master'
 
 set :initial_directories, lambda {
@@ -227,7 +228,7 @@ namespace :deploy do
       system %[echo "-----> RSyncing remote assets (tmp/assets) \
                      with local assets (#{precompiled_assets_dir})"]
 
-      system %(rsync #{rsync_verbose} -e 'ssh -p #{ssh_port}' \
+      system %(rsync #{rsync_verbose} -e 'ssh #{identity_file_with_arg} -p #{ssh_port}' \
                  --recursive --times --delete ./#{precompiled_assets_dir}/. \
                  #{user}@#{domain}:#{deploy_to}/tmp/assets)
     end
@@ -258,7 +259,7 @@ task setup: :environment do
   end
 
   unless env_exists
-    system %(scp -P #{ssh_port} .env.example \
+    system %(scp #{identity_file_with_arg} -P #{ssh_port} .env.example \
                #{user}@#{domain}:#{temp_env_example_path})
   end
 
@@ -401,7 +402,7 @@ end
 private
 
 def sudo_ssh_cmd(task)
-  "ssh #{get_sudo_user(task)}@#{domain} -t -p #{ssh_port}"
+  "ssh #{identity_file_with_arg} #{get_sudo_user(task)}@#{domain} -t -p #{ssh_port}"
 end
 
 def get_sudo_user(task)

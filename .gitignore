@@ -19,3 +19,5 @@
 
 # Temporary files often end with ~ character
 *~
+
+/*.pem
