@@ -65,6 +65,9 @@ gem 'font-awesome-sass', '~> 4.4.0'
 # Ruby server
 gem 'puma', '~> 3.10.0'
 
+# auto restart puma workers to keep memory usage low
+gem 'puma_worker_killer', '~> 0.1.0'
+
 # sends updates to google analytics when turbolinks changes page
 #gem 'google-analytics-turbolinks', '~> 0.0.4'
 

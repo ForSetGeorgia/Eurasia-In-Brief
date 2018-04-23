@@ -14,3 +14,10 @@ threads <%= puma_thread_count_min %>,<%= puma_thread_count_max %>
 
 bind "unix://<%= puma_socket %>"
 workers <%= puma_worker_count %>
+
+# restart puma workers so memory is kept in check
+before_fork do
+  require "puma_worker_killer"
+
+  PumaWorkerKiller.enable_rolling_restart(<%= Integer(puma_rolling_hours) %> * 3600)
+end
