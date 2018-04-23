@@ -5,7 +5,7 @@ set :application, 'EurasiaInBrief'
 set :repository, 'https://github.com/ForSetGeorgia/Eurasia-In-Brief.git'
 set :branch, 'master'
 set :web_url, ENV['PRODUCTION_WEB_URL']
-set :use_ssl, false
+set :use_ssl, true
 set :identity_file_arg, '-i'
 set :identity_file, 'redlegacy.pem'
 set :puma_worker_count, '1'
