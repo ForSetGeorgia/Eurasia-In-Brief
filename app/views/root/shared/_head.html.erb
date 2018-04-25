@@ -3,6 +3,14 @@
     title = (content_for?(:page_title) && yield(:page_title) != t('shared.common.name') ? "#{strip_tags_nbsp(yield(:page_title))} | #{t('shared.common.name')}" :
               t('shared.common.name')).html_safe
     desc = t("shared.common.description").html_safe
+
+    og_type = if params[:controller] == 'root' && params[:action] == 'index'
+      'main'
+    elsif params[:controller] == 'root' && params[:action] == 'country'
+      'article'
+    else
+      'page'
+    end
   -%>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -10,11 +18,11 @@
   <title><%= title %></title>
 
   <meta property="og:title" content="<%= title %>">
-  <meta name="description" content="<%= desc %>">
-  <meta property="og:description" content="<%= desc %>" />
-  <meta property="og:type" content="non_profit" />
+  <meta name="description" content='<%= desc %>'>
+  <meta property="og:description" content='<%= desc %>' />
+  <meta property="og:type" content="<%= og_type %>" />
   <meta property="og:url" content="<%= current_url %>" />
-  <!--meta property="og:image" content="<%= image_url("shareimage.png") %>" /-->
+  <meta property="og:image" content="<%= image_url("share_#{I18n.locale}.png") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
 
   <%= csrf_meta_tags %>

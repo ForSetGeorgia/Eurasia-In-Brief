@@ -1,0 +1,23 @@
+---
+ru:
+  activerecord:
+    attributes:
+      country:
+        name: Name
+        leader: Leader
+        lat: Latitude
+        lon: Longitude
+        map_zoom_level: Map Zoom Level
+        flag_image: Flag
+        flag_image2: High Resolution Flag
+        leader_image: Leader Image
+        freedom_house_index: Freedom House - Freedom of Press Index - Score
+        ti_index_score: TI Corruption Perception Index - Score
+        ti_index_rank: TI Corruption Perception Index - Rank
+        area: Area (km2)
+        population: Population
+        gdp: GDP Per Capita
+    models:
+      country:
+        one: Country
+        other: Countries

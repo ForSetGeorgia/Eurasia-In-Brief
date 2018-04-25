@@ -1,5 +1,5 @@
 ---
-en:
+ru:
   shared:
     actions:
       change_my_password: Change my password
@@ -22,8 +22,8 @@ en:
       actions: Actions
       developer:
         slogan: ForSet - Communicating With Data
-      name: Eurasia In Brief
-      description: Eurasia In Brief presents articles on the web you should be reading about the former Soviet Union. Complied by Eurasianet’s editors.
+      name: Евразия вкратце
+      description: '"Евразия вкратце" -- подборка достойных внимания статей из других изданий о странах бывшего СССР, подготовленная редакторами Eurasianet.'
       show_title: "%{model}: %{title}"
       'no': 'No'
       'yes': 'Yes'
