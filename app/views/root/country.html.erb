@@ -61,19 +61,6 @@
             <%= @country.freedom_house_index_value %>
           </li>
         </ul>
-        <% if @next_country.present? %>
-          <%= link_to country_path(@next_country), class: 'next-country' do %>
-            <div class="row">
-              <div>
-                <%= t('shared.common.next') %>
-                <strong><%= @next_country.name.upcase %></strong>
-              </div>
-              <div>
-                <%= image_set_tag('arrow.png', { 'arrow@2x.png'  => '2x' }, class: 'arrow') %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
       </div><div class="leader">
         <ul>
           <li class="leader-name"><strong><%= t('.leader') %>:</strong> <%= @country.leader %></li>
@@ -97,6 +84,7 @@
       </div>
     </div>
   </section><section class="section-scroll">
+    <div id="top"></div>
     <div class="stories">
       <% if @stories.present? %>
           <% @stories.each do |story| %>
@@ -136,6 +124,7 @@
     </div>
   </section>
 </article>
+<%= render partial: "root/shared/enet_footer_#{I18n.locale}" %>
 
 <% content_for :popup do %>
   <div class="countries-popup">

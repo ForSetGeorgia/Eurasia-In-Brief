@@ -57,7 +57,7 @@ gem 'devise', '~> 3.5.10'
 gem 'cancancan', '~> 1.10.1'
 
 # So that our SCSS can use bootstrap variables
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '3.3.6'
 
 # Useful icons
 gem 'font-awesome-sass', '~> 4.4.0'

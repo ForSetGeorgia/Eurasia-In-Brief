@@ -1,17 +1,18 @@
 //= require jquery
 // Bootstrap Javascript
 //= require twitter/bootstrap/transition
-//= require twitter/bootstrap/alert
-//= require twitter/bootstrap/modal
+//*= require twitter/bootstrap/alert
+//*= require twitter/bootstrap/modal
 //= require twitter/bootstrap/dropdown
-//= require twitter/bootstrap/scrollspy
-//= require twitter/bootstrap/tab
-//= require twitter/bootstrap/tooltip
+//*= require twitter/bootstrap/scrollspy
+//*= require twitter/bootstrap/tab
+//*= require twitter/bootstrap/tooltip
 //= require twitter/bootstrap/popover
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/collapse
-//= require twitter/bootstrap/carousel
-//= require twitter/bootstrap/affix
+//*= require twitter/bootstrap/carousel
+//*= require twitter/bootstrap/affix
+
 
 //= require utils
 //= require enet_nav
@@ -33,7 +34,7 @@
 
 
 
-  // map logic
+ // map logic
   var mapContainer = document.querySelector('div#country_map')
   if(mapContainer) {
     var map = L.map('country_map', {
@@ -46,15 +47,8 @@
       ],
       mapContainer.getAttribute('data-map-zoom-level')
     )
-    // L.tileLayer(gon.mapbox_url + '?access_token=' + gon.mapbox_token, {}).addTo(map);
-    L.tileLayer(gon.mapbox_url, {
-        maxZoom: 18,
-        id: 'country_map',
-        accessToken: gon.mapbox_token
-    }).addTo(map);
-
+    L.tileLayer(gon.mapbox_url + '?access_token=' + gon.mapbox_token, {}).addTo(map);
   }
-
 
   // countries list popup logic
   var countriesListToggle = document.querySelector('.countries-popup-toggle')

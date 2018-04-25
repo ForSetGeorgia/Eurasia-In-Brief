@@ -1,7 +1,7 @@
-@import 'bootstrap_and_overrides';
-@import 'reset';
 @import 'fonts';
+@import 'main_bootstrap';
 @import 'enet_nav';
+@import 'reset';
 
 *::-webkit-scrollbar-track {
   background-color: #fff;
@@ -71,7 +71,7 @@ input {
     flex-direction: column;
     flex: 1;
     overflow-y: scroll;
-    nav2 {
+    .nav-brief {
       // display: flex;
       // flex-direction: column;
       // padding: 30px 20px 0;
@@ -336,7 +336,7 @@ input {
         padding: 30px 10px 11px;
       }
       .leader-name {
-        padding: 0 10px 31px;
+        padding: 0 10px 21px;
       }
     }
     ul li {
@@ -580,27 +580,31 @@ input {
   .app {
     overflow: hidden;
     main {
-      nav2 {
+      overflow: hidden;
+      .nav-brief {
         // padding: 40px 0 33px 0;
         .nav-more {
         }
       }
-      nav2 {
+      .nav-brief {
         display: flex;
         flex-direction: row;
         // align-items: center;
         // padding: 30px 20px 40px;
-        padding: 80px 20px 40px;
+        padding: 80px 20px 20px 0;
         .nav-bar {
-          width: 25%;
+          width: 12.5%;
         }
         .nav-slogan {
           padding: 0;
-          width: 50%;
+          width: 37.5%;
+          p {
+            max-width: 100%;
+          }
         }
         .nav-more {
           position: relative;
-          width: 25%;
+          width: 50%;
         }
       }
     }
@@ -627,9 +631,9 @@ input {
     // height: 100%;
     article {
       // overflow: hidden;
-      .section-scroll {
         height: 100%;
         overflow-y: auto;
+      .section-scroll {
       }
     }
 
@@ -679,7 +683,7 @@ input {
         // left: -10px;
         .country {
           width: 25%;
-          padding: 60px 20px 0 0;
+          padding: 0px 20px 0 0;
           .country-story {
             margin: 0 0 0 0;
           }
