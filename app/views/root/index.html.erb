@@ -45,12 +45,9 @@
           <%= image_set_tag(country.flag_image.url(:thumb), { country.flag_image2.url(:thumb)  => '2x' }, class: 'flag') if country.flag_image.exists? %>
           <%= image_set_tag("arrow_black.png", { 'arrow_black@2x.png'  => '2x' }, class: 'arrow') %>
         <% end %>
-
-        <div class="country-story">
-          <%
-            story = @stories.select{|x| x.country_id == country.id}.first
-            if story.present?
-          %>
+        <% story = @stories.select{|x| x.country_id == country.id}.first %>
+        <div class="country-story<%= story.present? ? '' : ' empty' %>">
+          <% if story.present? %>
             <h3 class="story-title"><%= story.title %></h3>
             <div class="story-text">
               <%= truncate(strip_tags(story.content), length: 120, separator: ' ') %>
@@ -62,7 +59,7 @@
             <% end %>
           <% else %>
             <p class="story-nostory">
-              <%= t('.no_story') %>
+              <%= t('.no_story').upcase %>
             </p>
           <% end %>
         </div>
