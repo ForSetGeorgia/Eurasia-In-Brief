@@ -93,27 +93,6 @@ input {
           max-width: 75%;
         }
       }
-      .nav-more {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding-right: 14px;
-        .nav-lang {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
-        }
-      }
-      .nav-about {
-        // position: relative;
-        // top: 15px;
-        font-family: ProximaNova-Medium;
-        font-size: 1.4rem;
-        line-height: 1.5;
-        text-align: left;
-        color: #1090ff;
-        // margin: 30px 0 0;
-      }
     }
     .up {
       text-align: right;
@@ -203,6 +182,7 @@ input {
       display: inline-block;
       width: 100%;
       padding: 20px 0 0 0;
+      vertical-align: top;
       .country-header {
         display: flex;
         flex-direction: row;
@@ -568,6 +548,21 @@ input {
   }
 }
 
+@media(min-width:500px){
+  .app {
+    main {
+      .nav-brief {
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+
+        .nav-slogan {
+          padding: 0 0 39px 40px;
+        }
+      }
+    }
+  }
+}
 @media(min-width:576px){}
 @media (min-width: 768px) {}
 @media(min-width:992px){
@@ -575,20 +570,6 @@ input {
     main {
       .up {
         padding: 0 40px 0;
-      }
-      .nav-brief {
-        // padding: 80px 20px 20px 0;
-        padding: 80px 20px 39px;
-        .nav-bar {
-          display: inline-block;
-          // width: 12.5%;
-        }
-        .nav-slogan {
-          display: inline-block;
-          padding: 1px 0 0 40px;
-
-          vertical-align: top;
-        }
       }
     }
   }
@@ -612,10 +593,6 @@ input {
     main {
       overflow: hidden;
       .nav-brief {
-        display: flex;
-        flex-direction: row;
-        // align-items: center;
-        // padding: 30px 20px 40px;
         padding: 80px 20px 20px 0;
         .nav-bar {
           width: 12.5%;
@@ -626,10 +603,6 @@ input {
           p {
             max-width: 100%;
           }
-        }
-        .nav-more {
-          position: relative;
-          width: 50%;
         }
       }
     }

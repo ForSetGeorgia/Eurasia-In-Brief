@@ -21,15 +21,20 @@
   // index grid item to be same height
   countryElements = document.querySelectorAll('.country-story')
   if(countryElements.length) {
-    var maxHeight = 0
-    countryElements.forEach(function (countryElement) {
-      if(countryElement.offsetHeight > maxHeight) {
-        maxHeight = countryElement.offsetHeight
-      }
-    })
-    countryElements.forEach(function (countryElement) {
-      countryElement.style.height = maxHeight + 'px'
-    })
+    function countryHeightRefresh() {
+      var maxHeight = 0
+      countryElements.forEach(function (countryElement) {
+        countryElement.style.height = 'auto'
+        if(countryElement.offsetHeight > maxHeight) {
+          maxHeight = countryElement.offsetHeight
+        }
+      })
+      countryElements.forEach(function (countryElement) {
+        countryElement.style.height = maxHeight + 'px'
+      })
+    }
+    countryHeightRefresh()
+    window.onresize = countryHeightRefresh
   }
 
 
