@@ -220,7 +220,7 @@ input {
         min-height: 250px;
         padding: 50px 0 32px;
         &.empty{
-          background-image: url(nostory.svg);
+          background-image: image-url('nostory.svg');
           background-repeat: no-repeat;
           background-position: right bottom;
         }
@@ -437,7 +437,7 @@ input {
 }
 .about {
   .app {
-    background-image: url(bgmap.png);
+    background-image: image-url('bgmap.png');
     background-repeat: no-repeat;
     background-position: 10% 10%;
     background-size: cover;
@@ -768,7 +768,7 @@ input {
   }
   .about {
     .app {
-      background-image: url(bgmap.png);
+      background-image: image-url('bgmap.png');
       background-repeat: no-repeat;
       background-position: 10% 50%;
       background-size: initial;
