@@ -23,6 +23,7 @@ ru:
       developer:
         slogan: ForSet - Communicating With Data
       name: Евразия вкратце
+      slogan: Best of the web
       description: '"Евразия вкратце" -- подборка достойных внимания статей из других изданий о странах бывшего СССР, подготовленная редакторами Eurasianet.'
       show_title: "%{model}: %{title}"
       'no': 'No'

@@ -23,6 +23,7 @@ en:
       developer:
         slogan: ForSet - Communicating With Data
       name: Eurasia In Brief
+      slogan: Best of the web
       description: Eurasia In Brief presents articles on the web you should be reading about the former Soviet Union. Complied by Eurasianet’s editors.
       show_title: "%{model}: %{title}"
       'no': 'No'
