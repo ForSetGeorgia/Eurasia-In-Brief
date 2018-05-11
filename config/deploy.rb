@@ -152,7 +152,7 @@ namespace :deploy do
       exit
     end
 
-    unless `git status`.include? 'nothing to commit, working directory clean'
+    unless `git status`.include? 'nothing to commit, working tree clean'
       system %(echo "WARNING: There are uncommitted changes to the local git")
       system %(echo "repository, which may cause problems for locally")
       system %(echo "precompiling assets.")
