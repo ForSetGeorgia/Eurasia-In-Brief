@@ -88,7 +88,7 @@ input {
           text-align: right;
           position: absolute;
           top: 90px;
-          right: 135px;
+          right: 20px;
 
         a {
             color: #c7c7c7;
@@ -151,6 +151,9 @@ input {
   main {
     aside {
       padding: 0 20px 0;
+      &.other{
+        padding: 10px 20px 0;
+      }
       .period-bar {
         padding: 0 0 2px;
         .period-bar-container {
@@ -577,6 +580,22 @@ input {
   }
 }
 
+@media(max-width:450px){
+  .app {
+    main {
+      .nav-brief {
+        .social-media {
+          position: relative;
+          display: block;
+          top: inherit;
+          right: inherit;
+          text-align: left;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
 @media(min-width:500px){
   .app {
     main {
@@ -626,12 +645,10 @@ input {
         .nav-bar {
           width: 12.5%;
         }
-        .nav-slogan {
-          padding: 0;
-          width: 37.5%;
-          p {
-            max-width: 100%;
-          }
+        .social-media {
+            position: absolute;
+            top: 90px;
+            right: 135px;
         }
       }
     }
